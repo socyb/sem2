@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tema 5 — Retos de la IA para el desarrollo sostenible · Seminario NI II</title>
+<style>
+:root{--bg:#f7f5ef;--card:#fff;--border:#1a1a2e;--accent:#1b4332;--accent-light:#dce8d8;--gold:#b8960c;--gold-light:#f5ecd0;--red:#b91c1c;--blue:#1e5f8a;--text:#1a1a2e;--text-muted:#555566;--font-head:'Georgia','Times New Roman',serif;--font-body:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}body{font-family:var(--font-body);background:var(--bg);color:var(--text);}
+.deck{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;}.slide{min-height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px 24px;}.slide-inner{max-width:800px;width:100%;}
+.slide-title{background:linear-gradient(160deg,var(--gold-light) 0%,var(--bg) 60%,var(--accent-light) 100%);text-align:center;}.slide-title h1{font-family:var(--font-head);font-size:clamp(28px,5vw,48px);line-height:1.15;margin-bottom:16px;}.slide-title .subtitle{font-size:clamp(16px,2.5vw,22px);color:var(--text-muted);margin-bottom:24px;}
+.pill{display:inline-block;background:var(--accent);color:#fff;border:2px solid var(--border);border-radius:999px;padding:4px 14px;font-size:13px;font-weight:600;margin-bottom:16px;}
+.slide-content{background:var(--card);border-top:3px solid var(--border);border-bottom:3px solid var(--border);}.slide-content:nth-child(odd){background:var(--bg);}
+.slide-content h2{font-family:var(--font-head);font-size:clamp(22px,3.5vw,34px);margin-bottom:20px;padding-bottom:8px;border-bottom:3px solid var(--accent);display:inline-block;}
+.slide-content ul,.slide-content ol{padding-left:24px;font-size:clamp(15px,2vw,19px);line-height:1.7;}.slide-content li{margin-bottom:10px;}.slide-content li::marker{color:var(--accent);}
+.slide-content p{font-size:clamp(15px,2vw,19px);line-height:1.7;margin-bottom:12px;}
+.slide-content blockquote{border-left:4px solid var(--gold);padding:12px 20px;background:var(--gold-light);border-radius:0 8px 8px 0;font-style:italic;font-size:clamp(15px,2vw,18px);margin:16px 0;}
+.concept{background:var(--accent-light);border:2px solid var(--accent);border-radius:10px;padding:16px 20px;margin:16px 0;font-size:16px;}.concept strong{color:var(--accent);}
+.warn-box{background:#fde8e8;border:2px solid var(--red);border-radius:10px;padding:16px 20px;margin:16px 0;font-size:16px;}
+.slide-content.slide-questions{background:var(--accent);color:#fff;}.slide-questions h2{color:#fff;border-bottom-color:var(--gold);}.slide-questions li{color:#fff;}.slide-questions li::marker{color:var(--gold);}
+.slide-refs{background:var(--gold-light);}.slide-refs li{font-size:14px;line-height:1.5;}
+.slide-nav{position:fixed;bottom:20px;right:20px;display:flex;gap:8px;z-index:100;}.nav-btn{width:44px;height:44px;border:2px solid var(--border);border-radius:50%;background:var(--card);color:var(--text);font-size:20px;cursor:pointer;box-shadow:3px 3px 0 var(--border);display:flex;align-items:center;justify-content:center;}.nav-btn:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--border);}
+.progress{position:fixed;top:0;left:0;height:4px;background:var(--accent);z-index:100;transition:width .3s;}
+.back-link{position:fixed;top:12px;left:12px;z-index:100;background:var(--card);border:2px solid var(--border);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;text-decoration:none;color:var(--text);box-shadow:3px 3px 0 var(--border);}.back-link:hover{color:var(--accent);}
+.slide-counter{position:fixed;top:12px;right:12px;z-index:100;background:var(--card);border:2px solid var(--border);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700;box-shadow:2px 2px 0 var(--border);}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+@media(max-width:640px){.slide{padding:24px 16px;}.two-col{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<a class="back-link" href="../index.html">← Inicio</a>
+<div class="slide-counter" id="counter">1 / 9</div>
+
+<div class="deck" id="deck">
+
+<!-- SLIDE 1: Title -->
+<section class="slide slide-title">
+  <div class="slide-inner">
+    <div class="pill">Tema 5 · Seminario NI II</div>
+    <h1>Retos de la IA para el desarrollo sostenible y la mitigación de desigualdades</h1>
+    <p class="subtitle">Inteligencia artificial, ODS y brechas globales</p>
+    <svg style="margin:20px auto;display:block;" width="200" height="110" viewBox="0 0 200 110" fill="none">
+      <!-- Red neuronal estilizada -->
+      <circle cx="30" cy="25" r="8" fill="var(--accent-light)" stroke="var(--accent)" stroke-width="2"/>
+      <circle cx="30" cy="55" r="8" fill="var(--accent-light)" stroke="var(--accent)" stroke-width="2"/>
+      <circle cx="30" cy="85" r="8" fill="var(--accent-light)" stroke="var(--accent)" stroke-width="2"/>
+      <circle cx="100" cy="20" r="8" fill="var(--gold-light)" stroke="var(--gold)" stroke-width="2"/>
+      <circle cx="100" cy="55" r="8" fill="var(--gold-light)" stroke="var(--gold)" stroke-width="2"/>
+      <circle cx="100" cy="90" r="8" fill="var(--gold-light)" stroke="var(--gold)" stroke-width="2"/>
+      <circle cx="170" cy="40" r="10" fill="var(--accent)" stroke="var(--border)" stroke-width="2"/>
+      <circle cx="170" cy="75" r="10" fill="var(--accent)" stroke="var(--border)" stroke-width="2"/>
+      <!-- Connections -->
+      <line x1="38" y1="25" x2="92" y2="20" stroke="#999" stroke-width="1"/>
+      <line x1="38" y1="25" x2="92" y2="55" stroke="#999" stroke-width="1"/>
+      <line x1="38" y1="55" x2="92" y2="20" stroke="#999" stroke-width="1"/>
+      <line x1="38" y1="55" x2="92" y2="55" stroke="#999" stroke-width="1"/>
+      <line x1="38" y1="55" x2="92" y2="90" stroke="#999" stroke-width="1"/>
+      <line x1="38" y1="85" x2="92" y2="55" stroke="#999" stroke-width="1"/>
+      <line x1="38" y1="85" x2="92" y2="90" stroke="#999" stroke-width="1"/>
+      <line x1="108" y1="20" x2="160" y2="40" stroke="#999" stroke-width="1"/>
+      <line x1="108" y1="55" x2="160" y2="40" stroke="#999" stroke-width="1"/>
+      <line x1="108" y1="55" x2="160" y2="75" stroke="#999" stroke-width="1"/>
+      <line x1="108" y1="90" x2="160" y2="75" stroke="#999" stroke-width="1"/>
+      <text x="100" y="108" text-anchor="middle" font-size="10" fill="#555">Red neuronal → Decisiones</text>
+    </svg>
+    <p style="font-size:14px;color:var(--text-muted);">Prof. Juan Carlos Barrón Pastor · FCA UNAM · 2026-2</p>
+  </div>
+</section>
+
+<!-- SLIDE 2 -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>El momento de la IA</h2>
+    <ul>
+      <li><strong>IA generativa (2022-2026):</strong> ChatGPT, Claude, Gemini, Midjourney, Sora — irrupción masiva de IA generativa en la economía y la sociedad.</li>
+      <li><strong>Automatización acelerada:</strong> La IA ya no solo automatiza tareas manuales repetitivas, sino también trabajo cognitivo: redacción, análisis, diseño, programación, diagnóstico.</li>
+      <li><strong>Concentración del poder:</strong> El desarrollo de modelos de frontera está concentrado en un puñado de empresas (OpenAI, Google, Meta, Anthropic, xAI) — principalmente en EUA.</li>
+      <li><strong>Inversión masiva:</strong> Más de $300 mil millones de dólares invertidos en IA en 2024-2025. ¿Burbuja o transformación permanente?</li>
+    </ul>
+    <div class="concept">
+      <strong>Idea clave:</strong> La IA no es solo una tecnología más; es un cambio en la infraestructura sobre la cual se organiza la actividad económica.
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 3 -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>IA y los Objetivos de Desarrollo Sostenible</h2>
+    <p>La IA tiene potencial para contribuir a los ODS, pero también para obstaculizarlos:</p>
+    <div class="two-col">
+      <div class="concept">
+        <strong>Oportunidades:</strong>
+        <ul style="font-size:15px;line-height:1.6;margin-top:8px;">
+          <li>Salud: diagnóstico temprano, descubrimiento de fármacos</li>
+          <li>Educación: personalización del aprendizaje</li>
+          <li>Clima: optimización energética, monitoreo ambiental</li>
+          <li>Agricultura: predicción de cosechas, eficiencia hídrica</li>
+          <li>Gobernanza: transparencia, datos abiertos</li>
+        </ul>
+      </div>
+      <div class="warn-box">
+        <strong>Riesgos:</strong>
+        <ul style="font-size:15px;line-height:1.6;margin-top:8px;">
+          <li>Desempleo masivo en sectores rutinarios</li>
+          <li>Concentración de riqueza en pocas empresas</li>
+          <li>Huella ambiental de centros de datos</li>
+          <li>Sesgos algorítmicos que reproducen desigualdades</li>
+          <li>Vigilancia expandida (Tema 4)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 4 -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>Brecha digital y desigualdad global</h2>
+    <ul>
+      <li><strong>Brecha de acceso:</strong> ~2,600 millones de personas sin acceso a internet (ITU, 2024). Principalmente en África subsahariana y sur de Asia.</li>
+      <li><strong>Brecha de uso:</strong> Incluso con acceso, las habilidades digitales se distribuyen desigualmente por ingreso, género, edad y ubicación.</li>
+      <li><strong>Brecha de producción:</strong> Los países en desarrollo son consumidores de tecnología, no productores. Dependencia tecnológica estructural.</li>
+      <li><strong>Colonialismo digital:</strong> Extracción de datos del Sur Global, procesados y monetizados desde el Norte. Trabajadores de etiquetado (data labeling) en condiciones precarias.</li>
+      <li><strong>Sesgo algorítmico:</strong> Modelos entrenados con datos sesgados reproducen y amplifican discriminación de raza, género y clase.</li>
+    </ul>
+    <div class="concept">
+      <strong>Paradoja de la IA:</strong> La tecnología que promete reducir desigualdades podría profundizarlas si su desarrollo y regulación siguen dominados por un pequeño grupo de actores.
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 5 -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>Marcos regulatorios emergentes para la IA</h2>
+    <ul>
+      <li><strong>AI Act de la UE (2024):</strong> Primera regulación integral de IA basada en riesgo. Prohíbe usos como scoring social y reconocimiento facial masivo. Modelo para el mundo.</li>
+      <li><strong>EUA:</strong> Executive Order on AI (2023). Enfoque sectorial, industria como co-regulador. Tensión entre innovación y seguridad.</li>
+      <li><strong>China:</strong> Regulación de algoritmos de recomendación (2022), deepfakes (2023), IA generativa (2023). Control estatal del ecosistema.</li>
+      <li><strong>ONU:</strong> AI Advisory Body (2023). Resolución de la Asamblea General sobre IA y DDHH (2024). Gobernanza global incipiente.</li>
+      <li><strong>América Latina:</strong> Brasil (Marco Legal de IA, 2024), México (sin legislación específica aún). Oportunidad para regulación adaptada al contexto.</li>
+    </ul>
+    <blockquote>
+      Tres modelos: UE (derechos fundamentales), EUA (innovación + mercado), China (control estatal). ¿Cuál conviene a países en desarrollo?
+    </blockquote>
+  </div>
+</section>
+
+<!-- SLIDE 6 -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>IA y el mundo del trabajo</h2>
+    <ul>
+      <li><strong>Automatización vs. Aumentación:</strong> ¿La IA reemplaza trabajadores o potencia sus capacidades? Depende del diseño institucional y regulatorio.</li>
+      <li><strong>Sectores vulnerables:</strong> Servicios financieros, atención al cliente, logística, manufactura, trabajo administrativo, incluso profesiones creativas.</li>
+      <li><strong>Nuevos empleos:</strong> Ingeniería de prompts, ética de IA, auditoría algorítmica, gestión de datos. Pero: ¿son suficientes y accesibles?</li>
+      <li><strong>Propuestas de política:</strong> Renta básica universal, impuestos a robots/automatización, transición justa (just transition), formación continua.</li>
+      <li><strong>Contexto mexicano:</strong> 50%+ del empleo es informal. ¿Cómo se adapta una economía con baja digitalización y alta informalidad?</li>
+    </ul>
+    <div class="concept">
+      <strong>Conexión con los temas anteriores:</strong> La regulación de la IA es el nuevo campo de batalla entre Estados, corporaciones y sociedad civil — los mismos actores que vimos en los Temas 2 y 3.
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 7 -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>Implicaciones para los Negocios Internacionales</h2>
+    <ul>
+      <li><strong>Compliance algorítmico:</strong> Las empresas que usen IA deberán cumplir con marcos regulatorios distintos según jurisdicción (igual que con datos — Tema 4).</li>
+      <li><strong>Cadenas de suministro inteligentes:</strong> IA para optimización logística, predicción de demanda, gestión de riesgo. Ventaja competitiva pero dependencia tecnológica.</li>
+      <li><strong>Propiedad intelectual:</strong> ¿Quién es dueño de lo que genera una IA? Disputas legales en curso en múltiples jurisdicciones.</li>
+      <li><strong>Due diligence algorítmico:</strong> Inversores y reguladores exigiendo auditorías de impacto de IA (similar a auditorías ambientales).</li>
+      <li><strong>Competencia geopolítica por IA:</strong> Semiconductores, datos de entrenamiento, talento especializado como activos estratégicos nacionales.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SLIDE 8: Questions -->
+<section class="slide slide-content slide-questions">
+  <div class="slide-inner">
+    <h2>Preguntas para la reflexión</h2>
+    <ol>
+      <li>¿La IA puede ser una herramienta para reducir la desigualdad, o inevitablemente la profundiza?</li>
+      <li>¿Debería México desarrollar un marco regulatorio de IA propio o adoptar un modelo existente (UE, EUA)?</li>
+      <li>¿Cómo preparar a la fuerza laboral mexicana para la era de la IA, considerando la alta informalidad?</li>
+      <li>¿Es ético que un puñado de empresas decidan el futuro de la IA para toda la humanidad?</li>
+      <li>¿Cómo se conecta la regulación de la IA con los debates de gobernanza global (Chirico), captura regulatoria (Stigler) y capitalismo de vigilancia (Zuboff)?</li>
+      <li>¿Cuál es tu postura informada y crítica sobre los desafíos que plantea la IA al siglo XXI?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- SLIDE 9: References -->
+<section class="slide slide-content slide-refs">
+  <div class="slide-inner">
+    <h2>Referencias</h2>
+    <ul>
+      <li>Zuboff, S. (2019). <em>The age of surveillance capitalism: The fight for a human future at the new frontier of power</em>. PublicAffairs.</li>
+      <li>Barrón Pastor, J. C. (2022). Capitalismo digital e infodemia en América del Norte. En Ballesteros, C. (Coord.), <em>El gran desconcierto</em>. UNAM-FCPyS.</li>
+      <li>European Parliament. (2024). <em>Regulation (EU) 2024/1689: Artificial Intelligence Act</em>.</li>
+      <li>UNESCO. (2021). <em>Recommendation on the ethics of artificial intelligence</em>.</li>
+      <li>ITU. (2024). <em>Measuring digital development: Facts and figures 2024</em>. <a href="https://www.itu.int/en/ITU-D/Statistics/Pages/facts/default.aspx" target="_blank" rel="noopener">https://www.itu.int/en/ITU-D/Statistics/Pages/facts/default.aspx</a></li>
+      <li>Acemoglu, D., &amp; Johnson, S. (2023). <em>Power and progress: Our thousand-year struggle over technology and prosperity</em>. PublicAffairs.</li>
+      <li>Crawford, K. (2021). <em>Atlas of AI: Power, politics, and the planetary costs of artificial intelligence</em>. Yale University Press.</li>
+    </ul>
+    <p style="margin-top:24px;font-size:16px;text-align:center;color:var(--accent);">
+      <strong>Seminario de Negocios Internacionales II · FCA UNAM · 2026-2</strong>
+    </p>
+  </div>
+</section>
+
+</div>
+
+<div class="slide-nav">
+  <button class="nav-btn" onclick="prev()">▲</button>
+  <button class="nav-btn" onclick="next()">▼</button>
+</div>
+
+<script>
+const deck=document.getElementById('deck'),slides=deck.querySelectorAll('.slide'),total=slides.length,counter=document.getElementById('counter'),progress=document.getElementById('progress');
+function getCurrent(){return Math.min(Math.max(Math.round(deck.scrollTop/(deck.scrollHeight/total)),0),total-1);}
+function update(){const i=getCurrent();counter.textContent=(i+1)+' / '+total;progress.style.width=((i+1)/total*100)+'%';}
+function next(){const i=getCurrent();if(i<total-1)slides[i+1].scrollIntoView({behavior:'smooth'});}
+function prev(){const i=getCurrent();if(i>0)slides[i-1].scrollIntoView({behavior:'smooth'});}
+deck.addEventListener('scroll',update);
+document.addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key===' '){e.preventDefault();next();}if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();prev();}});
+update();
+</script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tema 4 — Infocracia, capitalismo digital y de vigilancia · Seminario NI II</title>
+<style>
+:root{--bg:#f7f5ef;--card:#fff;--border:#1a1a2e;--accent:#1b4332;--accent-light:#dce8d8;--gold:#b8960c;--gold-light:#f5ecd0;--red:#b91c1c;--text:#1a1a2e;--text-muted:#555566;--font-head:'Georgia','Times New Roman',serif;--font-body:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}body{font-family:var(--font-body);background:var(--bg);color:var(--text);}
+.deck{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;}.slide{min-height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px 24px;}.slide-inner{max-width:800px;width:100%;}
+.slide-title{background:linear-gradient(160deg,var(--gold-light) 0%,var(--bg) 60%,var(--accent-light) 100%);text-align:center;}.slide-title h1{font-family:var(--font-head);font-size:clamp(28px,5vw,48px);line-height:1.15;margin-bottom:16px;}.slide-title .subtitle{font-size:clamp(16px,2.5vw,22px);color:var(--text-muted);margin-bottom:24px;}
+.pill{display:inline-block;background:var(--accent);color:#fff;border:2px solid var(--border);border-radius:999px;padding:4px 14px;font-size:13px;font-weight:600;margin-bottom:16px;}
+.slide-content{background:var(--card);border-top:3px solid var(--border);border-bottom:3px solid var(--border);}.slide-content:nth-child(odd){background:var(--bg);}
+.slide-content h2{font-family:var(--font-head);font-size:clamp(22px,3.5vw,34px);margin-bottom:20px;padding-bottom:8px;border-bottom:3px solid var(--accent);display:inline-block;}
+.slide-content ul,.slide-content ol{padding-left:24px;font-size:clamp(15px,2vw,19px);line-height:1.7;}.slide-content li{margin-bottom:10px;}.slide-content li::marker{color:var(--accent);}
+.slide-content p{font-size:clamp(15px,2vw,19px);line-height:1.7;margin-bottom:12px;}
+.slide-content blockquote{border-left:4px solid var(--gold);padding:12px 20px;background:var(--gold-light);border-radius:0 8px 8px 0;font-style:italic;font-size:clamp(15px,2vw,18px);margin:16px 0;}
+.concept{background:var(--accent-light);border:2px solid var(--accent);border-radius:10px;padding:16px 20px;margin:16px 0;font-size:16px;}.concept strong{color:var(--accent);}
+.warn-box{background:#fde8e8;border:2px solid var(--red);border-radius:10px;padding:16px 20px;margin:16px 0;font-size:16px;}
+.slide-content.slide-questions{background:var(--accent);color:#fff;}.slide-questions h2{color:#fff;border-bottom-color:var(--gold);}.slide-questions li{color:#fff;}.slide-questions li::marker{color:var(--gold);}
+.slide-refs{background:var(--gold-light);}.slide-refs li{font-size:14px;line-height:1.5;}
+.slide-nav{position:fixed;bottom:20px;right:20px;display:flex;gap:8px;z-index:100;}.nav-btn{width:44px;height:44px;border:2px solid var(--border);border-radius:50%;background:var(--card);color:var(--text);font-size:20px;cursor:pointer;box-shadow:3px 3px 0 var(--border);display:flex;align-items:center;justify-content:center;}.nav-btn:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--border);}
+.progress{position:fixed;top:0;left:0;height:4px;background:var(--accent);z-index:100;transition:width .3s;}
+.back-link{position:fixed;top:12px;left:12px;z-index:100;background:var(--card);border:2px solid var(--border);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;text-decoration:none;color:var(--text);box-shadow:3px 3px 0 var(--border);}.back-link:hover{color:var(--accent);}
+.slide-counter{position:fixed;top:12px;right:12px;z-index:100;background:var(--card);border:2px solid var(--border);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700;box-shadow:2px 2px 0 var(--border);}
+@media(max-width:640px){.slide{padding:24px 16px;}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<a class="back-link" href="../index.html">← Inicio</a>
+<div class="slide-counter" id="counter">1 / 9</div>
+
+<div class="deck" id="deck">
+
+<!-- SLIDE 1 -->
+<section class="slide slide-title">
+  <div class="slide-inner">
+    <div class="pill">Tema 4 · Seminario NI II</div>
+    <h1>Infocracia, capitalismo digital y de vigilancia</h1>
+    <p class="subtitle">Datos, plataformas, poder y libertad en la era digital</p>
+    <svg style="margin:20px auto;display:block;" width="180" height="120" viewBox="0 0 180 120" fill="none">
+      <circle cx="90" cy="60" r="40" stroke="#1b4332" stroke-width="2" stroke-dasharray="6 3"/>
+      <circle cx="90" cy="60" r="20" stroke="#1b4332" stroke-width="2"/>
+      <circle cx="90" cy="60" r="5" fill="#b91c1c"/>
+      <line x1="90" y1="20" x2="90" y2="0" stroke="#1a1a2e" stroke-width="1.5"/>
+      <line x1="90" y1="100" x2="90" y2="120" stroke="#1a1a2e" stroke-width="1.5"/>
+      <line x1="50" y1="60" x2="30" y2="60" stroke="#1a1a2e" stroke-width="1.5"/>
+      <line x1="130" y1="60" x2="150" y2="60" stroke="#1a1a2e" stroke-width="1.5"/>
+      <circle cx="90" cy="0" r="4" fill="#c8a62e"/><circle cx="90" cy="120" r="4" fill="#c8a62e"/>
+      <circle cx="30" cy="60" r="4" fill="#c8a62e"/><circle cx="150" cy="60" r="4" fill="#c8a62e"/>
+      <text x="90" y="64" text-anchor="middle" font-size="8" fill="#fff" font-weight="bold">👁</text>
+    </svg>
+    <p style="font-size:14px;color:var(--text-muted);">Prof. Juan Carlos Barrón Pastor · FCA UNAM · 2026-2</p>
+  </div>
+</section>
+
+<!-- SLIDE 2 -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>¿Qué es el capitalismo de vigilancia?</h2>
+    <p>Concepto acuñado por <strong>Shoshana Zuboff (2019)</strong> en <em>The Age of Surveillance Capitalism</em>:</p>
+    <ul>
+      <li><strong>Definición:</strong> Un nuevo orden económico que se apropia de la experiencia humana como materia prima gratuita para prácticas comerciales de extracción, predicción y venta.</li>
+      <li><strong>Excedente conductual (behavioral surplus):</strong> Los datos que generamos más allá de lo necesario para mejorar el servicio → se usan para predecir y moldear comportamiento.</li>
+      <li><strong>Mercados de predicción:</strong> Las empresas no venden productos a usuarios; venden predicciones sobre usuarios a anunciantes y otros clientes.</li>
+      <li><strong>Si el producto es gratis, el producto eres tú</strong> (dicho popular): Pero Zuboff va más allá — no somos el producto, somos la materia prima.</li>
+    </ul>
+    <blockquote>
+      "Surveillance capitalism unilaterally claims human experience as free raw material for translation into behavioral data." (Zuboff, 2019, p. 8)
+    </blockquote>
+    <p style="font-size:13px;color:var(--text-muted);margin-top:4px;">Traducción libre: El capitalismo de vigilancia reclama unilateralmente la experiencia humana como materia prima gratuita para la traducción a datos de comportamiento.</p>
+  </div>
+</section>
+
+<!-- SLIDE 3 -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>Capitalismo digital: las plataformas como infraestructura</h2>
+    <ul>
+      <li><strong>Plataformas como intermediarios obligatorios:</strong> Google (búsqueda), Meta (social), Amazon (comercio), Apple/Google (apps), Microsoft (cloud/productividad).</li>
+      <li><strong>Efectos de red:</strong> Cuantos más usuarios, más valioso el servicio → monopolios naturales digitales.</li>
+      <li><strong>Economía gig:</strong> Uber, Rappi, DiDi — plataformas que intermedian trabajo sin relación laboral formal.</li>
+      <li><strong>Extractivismo digital:</strong> Extracción masiva de datos del Sur Global procesados y monetizados desde el Norte Global.</li>
+      <li><strong>Dra. Argelia Muñoz:</strong> Regulación de plataformas digitales alternativas en EUA — ¿cuáles son sus alcances y limitaciones?</li>
+    </ul>
+    <div class="concept">
+      <strong>Barrón Pastor (2022):</strong> El capitalismo digital y la infodemia en América del Norte representan retos para el desarrollo sostenible e informacional de la región.
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 4 -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>Infocracia: el gobierno de la información</h2>
+    <p>Concepto de <strong>Byung-Chul Han</strong> y otros pensadores: el poder político se ejerce cada vez más a través del control de flujos de información.</p>
+    <ul>
+      <li><strong>Desinformación y posverdad:</strong> Noticias falsas, bots, deepfakes — la información como arma geopolítica.</li>
+      <li><strong>Burbujas informativas:</strong> Algoritmos que refuerzan creencias existentes y polarizan el debate público.</li>
+      <li><strong>Microdireccionamiento político:</strong> Cambridge Analytica (2018) como paradigma: datos personales para manipulación electoral.</li>
+      <li><strong>Censura y control estatal:</strong> China (Gran Cortafuegos), Rusia (restricciones a medios), Turquía (bloqueo de redes sociales).</li>
+    </ul>
+    <div class="warn-box">
+      <strong>⚠ Nuevos totalitarismos:</strong> La convergencia entre vigilancia estatal, vigilancia corporativa y desinformación crea riesgos sin precedente para las libertades individuales y colectivas.
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 5 -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>Nuevos totalitarismos y riesgos para las libertades</h2>
+    <ul>
+      <li><strong>Crédito social (China):</strong> Sistema de puntuación basado en comportamiento ciudadano. ¿Disciplina social o control totalitario?</li>
+      <li><strong>Vigilancia masiva:</strong> Edward Snowden (2013) reveló programas de la NSA. Post-Snowden: ¿cambiaron las prácticas?</li>
+      <li><strong>Reconocimiento facial:</strong> Implementación en espacios públicos — eficiencia policial vs. control orwelliano.</li>
+      <li><strong>Tecnoautoritarismo:</strong> Gobiernos que adquieren tecnología de vigilancia (Pegasus/NSO Group) para espiar periodistas, activistas, opositores.</li>
+      <li><strong>Autocensura:</strong> El efecto panóptico: cuando sabes que te vigilan, cambias tu comportamiento incluso sin coacción directa.</li>
+    </ul>
+    <div class="concept">
+      <strong>Reflexión central (a partir de Zuboff, 2019):</strong> El mayor peligro no es la pérdida de privacidad, sino la pérdida de autonomía: que las decisiones sean tomadas por algoritmos que no comprendemos.
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 6 -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>Regulación del capitalismo digital</h2>
+    <ul>
+      <li><strong>GDPR (UE, 2018):</strong> Reglamento General de Protección de Datos. Consentimiento, derecho al olvido, portabilidad. Multas: hasta 4% del ingreso global.</li>
+      <li><strong>Digital Markets Act / Digital Services Act (UE, 2022-2024):</strong> Regulación de "gatekeepers" (grandes plataformas). Transparencia algorítmica, interoperabilidad.</li>
+      <li><strong>EUA:</strong> Enfoque sectorial, fragmentado. Debates sobre Section 230, regulación antimonopolio (demandas contra Google, Meta). Dra. Muñoz profundizará.</li>
+      <li><strong>América Latina:</strong> LGPDPPSO en México (datos personales), Ley de Datos de Brasil (LGPD). Avances pero con brechas de implementación.</li>
+      <li><strong>Divergencia regulatoria:</strong> Tres modelos: europeo (derechos), estadounidense (mercado), chino (control estatal).</li>
+    </ul>
+    <div class="concept">
+      <strong>Conexión con Tema 2:</strong> La regulación del capitalismo digital ilustra las tensiones entre interés público (privacidad, democracia), intereses corporativos (innovación, ganancias) y captura regulatoria (lobby tecnológico).
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 7 -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>Implicaciones para los Negocios Internacionales</h2>
+    <ul>
+      <li><strong>Compliance global:</strong> Las empresas que operan internacionalmente deben cumplir con marcos regulatorios divergentes (GDPR, CCPA, LGPD simultáneamente).</li>
+      <li><strong>Soberanía de datos:</strong> Países exigen que los datos de sus ciudadanos se almacenen localmente (localización de datos).</li>
+      <li><strong>Riesgo reputacional:</strong> Escándalos de privacidad pueden destruir valor de marca (Facebook/Cambridge Analytica).</li>
+      <li><strong>Comercio digital transfronterizo:</strong> Capítulo 19 del T-MEC sobre comercio digital. ¿Modelo a seguir o insuficiente?</li>
+      <li><strong>Inteligencia competitiva vs. espionaje digital:</strong> Líneas difusas en la era de los datos.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SLIDE 8 -->
+<section class="slide slide-content slide-questions">
+  <div class="slide-inner">
+    <h2>Preguntas para la reflexión</h2>
+    <ol>
+      <li>¿Usas servicios "gratuitos" de Big Tech? ¿Eres consciente de qué datos entregas y cómo se usan?</li>
+      <li>¿Es posible regular a las grandes plataformas sin frenar la innovación?</li>
+      <li>¿Existe la "privacidad" en la era digital o es un concepto anacrónico?</li>
+      <li>¿Qué diferencia hay entre la vigilancia estatal y la vigilancia corporativa? ¿Cuál es más peligrosa?</li>
+      <li>¿Cómo conectas las ideas de Zuboff con las teorías de regulación de Stigler y Eisner?</li>
+      <li>¿México necesita una estrategia de soberanía digital? ¿Qué incluiría?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- SLIDE 9 -->
+<section class="slide slide-content slide-refs">
+  <div class="slide-inner">
+    <h2>Referencias</h2>
+    <ul>
+      <li>Zuboff, S. (2019). <em>The age of surveillance capitalism: The fight for a human future at the new frontier of power</em>. PublicAffairs.</li>
+      <li>Barrón Pastor, J. C. (2022). Capitalismo digital e infodemia en América del Norte: Retos para el desarrollo sostenible e informacional de la región. En Ballesteros, C. (Coord.), <em>El gran desconcierto</em>. UNAM-FCPyS.</li>
+      <li>Han, B.-C. (2022). <em>Infocracia: La digitalización y la crisis de la democracia</em>. Taurus.</li>
+      <li>Srnicek, N. (2017). <em>Platform capitalism</em>. Polity Press.</li>
+      <li>Couldry, N., &amp; Mejias, U. A. (2019). <em>The costs of connection: How data is colonizing human life and appropriating it for capitalism</em>. Stanford University Press.</li>
+      <li>European Commission. (2022). <em>Regulation (EU) 2022/1925: Digital Markets Act</em>.</li>
+    </ul>
+    <p style="margin-top:24px;font-size:16px;text-align:center;color:var(--accent);">
+      <strong>Seminario de Negocios Internacionales II · FCA UNAM · 2026-2</strong>
+    </p>
+  </div>
+</section>
+
+</div>
+
+<div class="slide-nav">
+  <button class="nav-btn" onclick="prev()">▲</button>
+  <button class="nav-btn" onclick="next()">▼</button>
+</div>
+
+<script>
+const deck=document.getElementById('deck'),slides=deck.querySelectorAll('.slide'),total=slides.length,counter=document.getElementById('counter'),progress=document.getElementById('progress');
+function getCurrent(){return Math.min(Math.max(Math.round(deck.scrollTop/(deck.scrollHeight/total)),0),total-1);}
+function update(){const i=getCurrent();counter.textContent=(i+1)+' / '+total;progress.style.width=((i+1)/total*100)+'%';}
+function next(){const i=getCurrent();if(i<total-1)slides[i+1].scrollIntoView({behavior:'smooth'});}
+function prev(){const i=getCurrent();if(i>0)slides[i-1].scrollIntoView({behavior:'smooth'});}
+deck.addEventListener('scroll',update);
+document.addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key===' '){e.preventDefault();next();}if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();prev();}});
+update();
+</script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tema 1 — Crisis de la globalización liberal · Seminario NI II</title>
+<style>
+:root{
+  --bg:#f7f5ef;--card:#fff;--border:#1a1a2e;--accent:#1b4332;
+  --accent-light:#dce8d8;--gold:#b8960c;--gold-light:#f5ecd0;
+  --text:#1a1a2e;--text-muted:#555566;
+  --font-head:'Georgia','Times New Roman',serif;
+  --font-body:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-snap-type:y mandatory;}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);}
+
+/* Slide container */
+.deck{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;}
+.slide{
+  min-height:100vh;
+  scroll-snap-align:start;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  padding:40px 24px;
+  position:relative;
+}
+.slide-inner{max-width:800px;width:100%;}
+
+/* Title slide */
+.slide-title{
+  background:linear-gradient(160deg,var(--gold-light) 0%,var(--bg) 60%,var(--accent-light) 100%);
+  text-align:center;
+}
+.slide-title h1{
+  font-family:var(--font-head);
+  font-size:clamp(28px,5vw,48px);
+  line-height:1.15;
+  margin-bottom:16px;
+}
+.slide-title .subtitle{
+  font-size:clamp(16px,2.5vw,22px);
+  color:var(--text-muted);
+  margin-bottom:24px;
+}
+.pill{
+  display:inline-block;background:var(--accent);color:#fff;
+  border:2px solid var(--border);border-radius:999px;
+  padding:4px 14px;font-size:13px;font-weight:600;
+  margin-bottom:16px;
+}
+
+/* Content slides */
+.slide-content{background:var(--card);border-top:3px solid var(--border);border-bottom:3px solid var(--border);}
+.slide-content:nth-child(odd){background:var(--bg);}
+.slide-content h2{
+  font-family:var(--font-head);
+  font-size:clamp(22px,3.5vw,34px);
+  margin-bottom:20px;
+  padding-bottom:8px;
+  border-bottom:3px solid var(--accent);
+  display:inline-block;
+}
+.slide-content ul,.slide-content ol{padding-left:24px;font-size:clamp(15px,2vw,19px);line-height:1.7;}
+.slide-content li{margin-bottom:10px;}
+.slide-content li::marker{color:var(--accent);}
+.slide-content p{font-size:clamp(15px,2vw,19px);line-height:1.7;margin-bottom:12px;}
+.slide-content blockquote{
+  border-left:4px solid var(--gold);
+  padding:12px 20px;
+  background:var(--gold-light);
+  border-radius:0 8px 8px 0;
+  font-style:italic;
+  font-size:clamp(15px,2vw,18px);
+  margin:16px 0;
+}
+
+/* Concept box */
+.concept{
+  background:var(--accent-light);
+  border:2px solid var(--accent);
+  border-radius:10px;
+  padding:16px 20px;
+  margin:16px 0;
+  font-size:16px;
+}
+.concept strong{color:var(--accent);}
+
+/* Questions slide */
+.slide-content.slide-questions{background:var(--accent);color:#fff;}
+.slide-questions h2{color:#fff;border-bottom-color:var(--gold);}
+.slide-questions li{color:#fff;}
+.slide-questions li::marker{color:var(--gold);}
+
+/* References slide */
+.slide-refs{background:var(--gold-light);}
+.slide-refs li{font-size:14px;line-height:1.5;}
+
+/* Navigation */
+.slide-nav{
+  position:fixed;bottom:20px;right:20px;
+  display:flex;gap:8px;z-index:100;
+}
+.nav-btn{
+  width:44px;height:44px;
+  border:2px solid var(--border);border-radius:50%;
+  background:var(--card);color:var(--text);
+  font-size:20px;cursor:pointer;
+  box-shadow:3px 3px 0 var(--border);
+  display:flex;align-items:center;justify-content:center;
+}
+.nav-btn:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--border);}
+
+/* Progress */
+.progress{
+  position:fixed;top:0;left:0;height:4px;
+  background:var(--accent);z-index:100;
+  transition:width .3s;
+}
+
+/* Back link */
+.back-link{
+  position:fixed;top:12px;left:12px;z-index:100;
+  background:var(--card);border:2px solid var(--border);
+  border-radius:999px;padding:6px 14px;
+  font-size:13px;font-weight:600;
+  text-decoration:none;color:var(--text);
+  box-shadow:3px 3px 0 var(--border);
+}
+.back-link:hover{color:var(--accent);}
+
+/* Slide counter */
+.slide-counter{
+  position:fixed;top:12px;right:12px;z-index:100;
+  background:var(--card);border:2px solid var(--border);
+  border-radius:999px;padding:4px 12px;
+  font-size:12px;font-weight:700;
+  box-shadow:2px 2px 0 var(--border);
+}
+
+/* Responsive */
+@media(max-width:640px){
+  .slide{padding:24px 16px;}
+  .slide-nav{bottom:12px;right:12px;}
+  .nav-btn{width:38px;height:38px;font-size:16px;}
+}
+
+/* SVG diagrams */
+.diagram{margin:20px auto;display:block;}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<a class="back-link" href="../index.html">← Inicio</a>
+<div class="slide-counter" id="counter">1 / 8</div>
+
+<div class="deck" id="deck">
+
+<!-- SLIDE 1: Title -->
+<section class="slide slide-title">
+  <div class="slide-inner">
+    <div class="pill">Tema 1 · Seminario NI II</div>
+    <h1>Crisis de la globalización liberal y conflictos hacia un nuevo orden</h1>
+    <p class="subtitle">Del Consenso de Washington a la multipolaridad</p>
+    <svg class="diagram" width="200" height="120" viewBox="0 0 200 120" fill="none">
+      <circle cx="100" cy="60" r="45" stroke="#1b4332" stroke-width="2"/>
+      <ellipse cx="100" cy="60" rx="20" ry="45" stroke="#1b4332" stroke-width="1.5"/>
+      <path d="M55 60h90" stroke="#1b4332" stroke-width="1.5"/>
+      <path d="M60 38h80" stroke="#1b4332" stroke-width="1" opacity=".4"/>
+      <path d="M60 82h80" stroke="#1b4332" stroke-width="1" opacity=".4"/>
+      <path d="M100 15v90" stroke="#c8a62e" stroke-width="2" stroke-dasharray="4 3"/>
+      <circle cx="70" cy="38" r="5" fill="#b91c1c" opacity=".7"/>
+      <circle cx="130" cy="38" r="5" fill="#b91c1c" opacity=".7"/>
+      <circle cx="100" cy="105" r="5" fill="#1b4332"/>
+      <text x="100" y="118" text-anchor="middle" font-size="10" fill="#555">Fracturas globales</text>
+    </svg>
+    <p style="font-size:14px;color:var(--text-muted);">Prof. Juan Carlos Barrón Pastor · FCA UNAM · 2026-2</p>
+  </div>
+</section>
+
+<!-- SLIDE 2: Context -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>¿Qué entendemos por globalización liberal?</h2>
+    <ul>
+      <li><strong>Bretton Woods (1944):</strong> Arquitectura institucional del orden económico de posguerra — FMI, Banco Mundial, GATT/OMC.</li>
+      <li><strong>Consenso de Washington (1989):</strong> Liberalización comercial, desregulación, privatización, apertura a la inversión extranjera.</li>
+      <li><strong>Premisa central:</strong> El libre comercio y la integración financiera global generarían prosperidad compartida.</li>
+      <li><strong>Resultado esperado:</strong> Convergencia económica entre países desarrollados y en desarrollo.</li>
+    </ul>
+    <div class="concept">
+      <strong>Concepto clave:</strong> La globalización liberal no es un proceso natural o inevitable, sino una construcción político-institucional que responde a intereses específicos y correlaciones de poder.
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 3: Crisis signals -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>Señales de crisis</h2>
+    <ul>
+      <li><strong>Crisis financiera de 2008:</strong> Desregulación financiera → colapso de Lehman Brothers → recesión global. Cuestionamiento frontal del modelo.</li>
+      <li><strong>Desigualdad creciente:</strong> La globalización benefició desproporcionadamente al capital frente al trabajo (Piketty, Milanovic).</li>
+      <li><strong>Brexit (2016) y Trump (2016):</strong> Rechazo electoral a la integración: proteccionismo, nacionalismo económico.</li>
+      <li><strong>Guerras comerciales:</strong> EUA vs. China — aranceles, sanciones tecnológicas, desacoplamiento (decoupling).</li>
+      <li><strong>COVID-19 (2020):</strong> Vulnerabilidad de cadenas de suministro globales. Reshoring, nearshoring, friend-shoring.</li>
+      <li><strong>Conflictos geopolíticos:</strong> Invasión de Ucrania (2022), tensiones en el Indo-Pacífico, fragmentación del sistema multilateral.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SLIDE 4: Sovereignty resurgence -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>Resurgimiento de las soberanías</h2>
+    <ul>
+      <li><strong>Nacionalismo económico:</strong> Políticas industriales activas, subsidios estratégicos (CHIPS Act en EUA, política de autosuficiencia en China).</li>
+      <li><strong>Soberanía alimentaria y energética:</strong> Países buscan reducir dependencia externa en sectores críticos.</li>
+      <li><strong>Populismo y proteccionismo:</strong> Discursos políticos que culpan a la globalización de la pérdida de empleos y salarios estancados.</li>
+      <li><strong>Bloques regionales:</strong> Fortalecimiento de acuerdos regionales sobre multilateralismo (T-MEC, RCEP, Unión Africana).</li>
+    </ul>
+    <blockquote>
+      "The reckless invasion of Ukraine has put an end to the globalization we have experienced over the last three decades." — Larry Fink, carta anual a inversionistas de BlackRock, 2022.
+    </blockquote>
+    <p style="font-size:13px;color:var(--text-muted);margin-top:4px;">Paráfrasis habitual: la globalización tal como la conocimos ha terminado.</p>
+  </div>
+</section>
+
+<!-- SLIDE 5: New order -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>¿Hacia un nuevo orden?</h2>
+    <ul>
+      <li><strong>Multipolaridad:</strong> De una hegemonía unipolar (EUA post-1991) a un sistema con múltiples centros de poder (EUA, China, UE, India, BRICS+).</li>
+      <li><strong>BRICS+:</strong> Ampliación del bloque (enero 2024): incorporación de Irán, Etiopía, Egipto y EAU como miembros plenos; Arabia Saudita como participante invitada. ¿Nueva arquitectura financiera?</li>
+      <li><strong>Desglobalización vs. Reglobalización:</strong> No es que el comercio global desaparezca, sino que se reconfigura bajo nuevas lógicas (amigos vs. rivales).</li>
+      <li><strong>Fragmentación normativa:</strong> Estándares divergentes (datos, IA, ambiente) entre bloques.</li>
+    </ul>
+    <div class="concept">
+      <strong>Wallerstein (1997)</strong> ya advertía sobre la reestructuración capitalista y las tensiones del sistema-mundo: las crisis no son anomalías, sino parte estructural del capitalismo global.
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 6: Implications for intl business -->
+<section class="slide slide-content">
+  <div class="slide-inner">
+    <h2>Implicaciones para los Negocios Internacionales</h2>
+    <ul>
+      <li><strong>Mayor incertidumbre regulatoria:</strong> Las empresas deben adaptarse a marcos cambiantes y potencialmente contradictorios entre países.</li>
+      <li><strong>Reconfiguración de cadenas de valor:</strong> Diversificación de proveedores, nearshoring hacia México y otros países cercanos.</li>
+      <li><strong>Riesgo geopolítico como variable estratégica:</strong> Las decisiones de inversión consideran cada vez más factores políticos.</li>
+      <li><strong>Nuevas oportunidades:</strong> Economía verde, transición energética, servicios digitales transfronterizos.</li>
+      <li><strong>El caso de México:</strong> Beneficiario potencial del nearshoring, pero dependiente de la estabilidad del T-MEC.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SLIDE 7: Questions -->
+<section class="slide slide-content slide-questions">
+  <div class="slide-inner">
+    <h2>Preguntas para la reflexión</h2>
+    <ol>
+      <li>¿Es posible "desglobalizar" la economía mundial, o estamos ante una reconfiguración del mismo proceso?</li>
+      <li>¿A quién beneficia y a quién perjudica el regreso de las políticas proteccionistas?</li>
+      <li>¿Qué papel juega México en el nuevo orden comercial? ¿Oportunidad o vulnerabilidad?</li>
+      <li>¿Las instituciones multilaterales (OMC, FMI) pueden adaptarse o están destinadas a ser reemplazadas?</li>
+      <li>¿Cómo se relacionan estas tensiones con las lecturas del curso — gobernanza global (Chirico) y regulación (Eisner, Baldwin)?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- SLIDE 8: References -->
+<section class="slide slide-content slide-refs">
+  <div class="slide-inner">
+    <h2>Referencias</h2>
+    <ul>
+      <li>Chirico, J. (2014). Who gets what, when and how: Global governance. En <em>Globalization, prospects and problems</em>. Sage.</li>
+      <li>Wallerstein, I. (1997). La reestructuración capitalista y el sistema-mundo. <em>Anuario Mariateguiano</em>, 9(9).</li>
+      <li>Rodrik, D. (2011). <em>The globalization paradox: Democracy and the future of the world economy</em>. Norton.</li>
+      <li>Milanovic, B. (2016). <em>Global inequality: A new approach for the age of globalization</em>. Harvard University Press.</li>
+      <li>Stiglitz, J. E. (2002). <em>Globalization and its discontents</em>. Norton.</li>
+      <li>UNCTAD. (2023). <em>World investment report 2023</em>. United Nations.</li>
+    </ul>
+    <p style="margin-top:24px;font-size:16px;text-align:center;color:var(--accent);">
+      <strong>Seminario de Negocios Internacionales II · FCA UNAM · 2026-2</strong>
+    </p>
+  </div>
+</section>
+
+</div>
+
+<!-- Navigation -->
+<div class="slide-nav">
+  <button class="nav-btn" onclick="prev()" aria-label="Anterior">▲</button>
+  <button class="nav-btn" onclick="next()" aria-label="Siguiente">▼</button>
+</div>
+
+<script>
+const deck=document.getElementById('deck');
+const slides=deck.querySelectorAll('.slide');
+const total=slides.length;
+const counter=document.getElementById('counter');
+const progress=document.getElementById('progress');
+
+function getCurrent(){
+  const st=deck.scrollTop;
+  const sh=deck.scrollHeight-deck.clientHeight;
+  const idx=Math.round(st/(deck.scrollHeight/total));
+  return Math.min(Math.max(idx,0),total-1);
+}
+function update(){
+  const i=getCurrent();
+  counter.textContent=(i+1)+' / '+total;
+  progress.style.width=((i+1)/total*100)+'%';
+}
+function next(){
+  const i=getCurrent();
+  if(i<total-1) slides[i+1].scrollIntoView({behavior:'smooth'});
+}
+function prev(){
+  const i=getCurrent();
+  if(i>0) slides[i-1].scrollIntoView({behavior:'smooth'});
+}
+deck.addEventListener('scroll',update);
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key===' '){e.preventDefault();next();}
+  if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();prev();}
+});
+update();
+</script>
+</body>
+</html>

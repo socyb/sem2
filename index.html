@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seminario de Negocios Internacionales II · 2026-2 · FCA UNAM</title>
+<meta name="description" content="Página complementaria al curso Seminario de Negocios Internacionales II, impartido por Juan Carlos Barrón Pastor, FCA, UNAM, semestre 2026-2.">
+<style>
+/* ═══════════════════════════════════════════
+   Neo-Academic Brutalism — Variación "Tinta y Pergamino"
+   Seminario de Negocios Internacionales II
+   ═══════════════════════════════════════════ */
+:root{
+  --bg:#f7f5ef;
+  --card:#ffffff;
+  --border:#1a1a2e;
+  --shadow:#1a1a2e;
+  --accent:#1b4332;
+  --accent-light:#dce8d8;
+  --gold:#b8960c;
+  --gold-light:#f5ecd0;
+  --red:#b91c1c;
+  --red-light:#fde8e8;
+  --blue:#1e5f8a;
+  --blue-light:#ddeaf5;
+  --text:#1a1a2e;
+  --text-muted:#555566;
+  --radius:10px;
+  --sh:5px;
+  --font-head:'Georgia','Times New Roman',serif;
+  --font-body:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  -webkit-text-size-adjust:100%;
+}
+img,svg{display:block;max-width:100%;}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:2px;}
+a:hover{color:var(--gold);}
+
+/* ── Layout ── */
+.wrap{max-width:860px;margin:0 auto;padding:0 16px;}
+
+/* ── Header ── */
+.site-header{
+  text-align:center;
+  padding:32px 16px 28px;
+  background:linear-gradient(160deg,var(--gold-light) 0%,var(--bg) 60%,var(--accent-light) 100%);
+  border-bottom:4px solid var(--border);
+}
+.header-inner{max-width:860px;margin:0 auto;}
+.header-pill{
+  display:inline-block;
+  background:var(--accent);
+  color:#fff;
+  border:2px solid var(--border);
+  border-radius:999px;
+  padding:5px 16px;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.4px;
+  margin-bottom:14px;
+}
+.header-svg{margin:0 auto 12px;width:72px;height:72px;}
+.site-header h1{
+  font-family:var(--font-head);
+  font-size:clamp(26px,5vw,42px);
+  line-height:1.1;
+  margin-bottom:6px;
+}
+.header-semester{
+  font-family:var(--font-head);
+  font-size:clamp(20px,3.5vw,28px);
+  color:var(--gold);
+  font-weight:700;
+  margin-bottom:10px;
+}
+.header-prof{
+  font-size:15px;
+  color:var(--text-muted);
+}
+.header-prof strong{color:var(--text);}
+
+/* ── Quick Nav ── */
+.quick-nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
+  padding:18px 0;
+}
+.qn-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  background:var(--card);
+  border:2px solid var(--border);
+  border-radius:999px;
+  padding:6px 14px;
+  font-size:13px;
+  font-weight:600;
+  color:var(--text);
+  text-decoration:none;
+  box-shadow:3px 3px 0 var(--shadow);
+  transition:transform .1s,box-shadow .1s;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.qn-btn:hover,.qn-btn:focus{
+  transform:translate(1px,1px);
+  box-shadow:2px 2px 0 var(--shadow);
+  color:var(--accent);
+  text-decoration:none;
+}
+
+/* ── Sections (collapsible) ── */
+.section{
+  background:var(--card);
+  border:3px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--sh) var(--sh) 0 var(--shadow);
+  margin-bottom:18px;
+  overflow:hidden;
+}
+.section summary{
+  padding:16px 20px;
+  font-family:var(--font-head);
+  font-size:clamp(16px,2.5vw,19px);
+  font-weight:700;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  list-style:none;
+  user-select:none;
+  transition:background .15s;
+}
+.section summary::-webkit-details-marker{display:none;}
+.section summary::after{
+  content:'▸';
+  margin-left:auto;
+  font-size:18px;
+  transition:transform .2s;
+}
+.section[open] summary::after{transform:rotate(90deg);}
+.section summary:hover{background:var(--accent-light);}
+.section[open] summary{border-bottom:2px solid var(--border);}
+.section .content{padding:20px;}
+.section .content>*+*{margin-top:14px;}
+
+.section summary .s-icon{
+  flex-shrink:0;
+  width:26px;height:26px;
+  color:var(--accent);
+}
+
+/* ── Cards inside sections ── */
+.inner-card{
+  background:var(--bg);
+  border:2px solid var(--border);
+  border-radius:8px;
+  padding:14px 16px;
+  box-shadow:3px 3px 0 var(--border);
+}
+.inner-card h4{
+  font-family:var(--font-head);
+  font-size:16px;
+  margin-bottom:6px;
+}
+
+/* ── Pills / Tags ── */
+.tag{
+  display:inline-block;
+  border:2px solid var(--border);
+  border-radius:999px;
+  padding:2px 10px;
+  font-size:12px;
+  font-weight:700;
+  white-space:nowrap;
+}
+.tag-green{background:var(--accent-light);color:var(--accent);}
+.tag-gold{background:var(--gold-light);color:#7a6200;}
+.tag-blue{background:var(--blue-light);color:var(--blue);}
+.tag-red{background:var(--red-light);color:var(--red);}
+.tag-gray{background:#eee;color:#555;}
+
+/* ── Calendar Grid ── */
+.cal-list{display:flex;flex-direction:column;gap:10px;}
+.cal-item{
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:12px;
+  align-items:start;
+  padding:12px 14px;
+  background:var(--bg);
+  border:2px solid var(--border);
+  border-radius:8px;
+  transition:background .15s;
+}
+.cal-item.past{opacity:.6;}
+.cal-item.current{
+  background:var(--accent-light);
+  border-color:var(--accent);
+  box-shadow:3px 3px 0 var(--accent);
+  opacity:1;
+}
+.cal-item.deadline{border-left:5px solid var(--red);}
+.cal-date{
+  font-family:var(--font-head);
+  font-weight:700;
+  font-size:14px;
+  line-height:1.3;
+  color:var(--accent);
+}
+.cal-date small{display:block;font-size:11px;color:var(--text-muted);font-weight:400;}
+.cal-body h4{font-size:15px;margin-bottom:3px;}
+.cal-body p{font-size:13px;color:var(--text-muted);line-height:1.4;}
+
+/* ── Eval Table ── */
+.eval-table{width:100%;border-collapse:collapse;font-size:14px;}
+.eval-table th,.eval-table td{
+  padding:10px 12px;
+  border:2px solid var(--border);
+  text-align:left;
+}
+.eval-table th{
+  background:var(--accent);
+  color:#fff;
+  font-weight:700;
+}
+.eval-table tr:nth-child(even) td{background:var(--bg);}
+.eval-bar{
+  height:10px;
+  background:var(--accent-light);
+  border-radius:5px;
+  overflow:hidden;
+  margin-top:4px;
+}
+.eval-bar-fill{
+  height:100%;
+  border-radius:5px;
+  background:var(--accent);
+}
+
+/* ── Reading Cards ── */
+.reading-card{
+  background:var(--bg);
+  border:2px solid var(--border);
+  border-radius:8px;
+  padding:16px;
+  box-shadow:3px 3px 0 var(--border);
+}
+.reading-card+.reading-card{margin-top:12px;}
+.reading-num{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;height:28px;
+  background:var(--accent);
+  color:#fff;
+  border-radius:50%;
+  font-weight:700;
+  font-size:14px;
+  margin-right:8px;
+  flex-shrink:0;
+}
+.reading-title{font-family:var(--font-head);font-size:15px;font-weight:700;}
+.reading-meta{font-size:13px;color:var(--text-muted);margin-top:4px;line-height:1.4;}
+
+/* ── Expert Cards ── */
+.expert-card{
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+  background:var(--gold-light);
+  border:2px solid var(--border);
+  border-radius:8px;
+  padding:16px;
+  box-shadow:3px 3px 0 var(--border);
+}
+.expert-card+.expert-card{margin-top:12px;}
+.expert-avatar{
+  flex-shrink:0;
+  width:52px;height:52px;
+  background:var(--accent);
+  border-radius:50%;
+  border:2px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+}
+.expert-avatar svg{color:#fff;width:28px;height:28px;}
+.expert-info h4{font-size:15px;margin-bottom:2px;}
+.expert-info p{font-size:13px;color:var(--text-muted);line-height:1.4;}
+
+/* ── Presentation Links ── */
+.pres-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:12px;
+}
+.pres-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  background:var(--bg);
+  border:2px solid var(--border);
+  border-radius:8px;
+  box-shadow:3px 3px 0 var(--border);
+  text-decoration:none;
+  color:var(--text);
+  font-weight:600;
+  font-size:14px;
+  transition:transform .1s,box-shadow .1s;
+}
+.pres-link:hover{
+  transform:translate(2px,2px);
+  box-shadow:1px 1px 0 var(--border);
+  color:var(--accent);
+}
+.pres-link .pnum{
+  display:inline-flex;
+  align-items:center;justify-content:center;
+  width:32px;height:32px;
+  background:var(--accent);
+  color:#fff;
+  border-radius:8px;
+  font-size:15px;
+  font-weight:700;
+  flex-shrink:0;
+}
+
+/* ── Activity Template ── */
+.template-box{
+  background:var(--bg);
+  border:2px dashed var(--accent);
+  border-radius:8px;
+  padding:16px;
+  font-size:14px;
+}
+.template-box h4{
+  font-family:var(--font-head);
+  margin-bottom:8px;
+  color:var(--accent);
+}
+.template-box ol,.template-box ul{padding-left:20px;}
+.template-box li{margin-bottom:4px;}
+
+/* ── Deadline Banner ── */
+.deadline-banner{
+  background:var(--red-light);
+  border:2px solid var(--red);
+  border-radius:8px;
+  padding:12px 16px;
+  font-size:14px;
+  font-weight:600;
+  color:var(--red);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* ── Expand/Collapse All ── */
+.controls{
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  padding:4px 0 10px;
+}
+.ctrl-btn{
+  background:var(--card);
+  border:2px solid var(--border);
+  border-radius:8px;
+  padding:6px 12px;
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:2px 2px 0 var(--border);
+  transition:transform .1s,box-shadow .1s;
+}
+.ctrl-btn:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--border);}
+
+/* ── Footer ── */
+.site-footer{
+  text-align:center;
+  padding:28px 16px;
+  border-top:4px solid var(--border);
+  margin-top:40px;
+  font-size:13px;
+  color:var(--text-muted);
+  line-height:1.5;
+  background:linear-gradient(0deg,var(--accent-light) 0%,var(--bg) 100%);
+}
+.site-footer strong{color:var(--text);}
+.footer-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:16px;
+  margin-top:10px;
+}
+.footer-links a{font-size:13px;}
+
+/* ── Lists ── */
+.content ul,.content ol{padding-left:22px;}
+.content li{margin-bottom:6px;font-size:15px;}
+.content li::marker{color:var(--accent);}
+.content p{font-size:15px;}
+.content h3{
+  font-family:var(--font-head);
+  font-size:17px;
+  margin-bottom:8px;
+  margin-top:18px;
+  padding-bottom:4px;
+  border-bottom:2px solid var(--accent-light);
+}
+.content h3:first-child{margin-top:0;}
+
+/* ── Responsive ── */
+@media(max-width:640px){
+  .site-header{padding:24px 12px 20px;}
+  .section summary{padding:14px 14px;font-size:15px;}
+  .section .content{padding:14px;}
+  .cal-item{grid-template-columns:70px 1fr;padding:10px 12px;gap:10px;}
+  .expert-card{flex-direction:column;align-items:center;text-align:center;}
+  .pres-grid{grid-template-columns:1fr;}
+  .quick-nav{padding:12px 0;}
+  .qn-btn{font-size:12px;padding:5px 10px;}
+}
+
+/* ── Print ── */
+@media print{
+  .section{break-inside:avoid;box-shadow:none !important;}
+  .section[open] summary~.content{display:block !important;}
+  .quick-nav,.controls,.ctrl-btn{display:none !important;}
+  .site-header{border-bottom:2px solid #000;}
+  body{background:#fff;}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════ -->
+<!--  HEADER                                 -->
+<!-- ════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-pill">FCA · UNAM · Licenciatura en Negocios Internacionales</div>
+
+    <!-- SVG decorativo: red de nodos global (único para este sitio) -->
+    <svg class="header-svg" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="36" cy="36" r="30" stroke="#1b4332" stroke-width="2.5"/>
+      <ellipse cx="36" cy="36" rx="14" ry="30" stroke="#1b4332" stroke-width="1.5"/>
+      <path d="M6 36h60" stroke="#1b4332" stroke-width="1.5"/>
+      <path d="M10 22h52" stroke="#1b4332" stroke-width="1" opacity=".5"/>
+      <path d="M10 50h52" stroke="#1b4332" stroke-width="1" opacity=".5"/>
+      <circle cx="20" cy="22" r="3" fill="#c8a62e" stroke="#1a1a2e" stroke-width="1.5"/>
+      <circle cx="52" cy="22" r="3" fill="#c8a62e" stroke="#1a1a2e" stroke-width="1.5"/>
+      <circle cx="36" cy="50" r="3" fill="#c8a62e" stroke="#1a1a2e" stroke-width="1.5"/>
+      <circle cx="18" cy="36" r="2.5" fill="#1b4332"/>
+      <circle cx="54" cy="36" r="2.5" fill="#1b4332"/>
+      <line x1="20" y1="22" x2="36" y2="50" stroke="#1a1a2e" stroke-width="1" stroke-dasharray="3 2"/>
+      <line x1="52" y1="22" x2="36" y2="50" stroke="#1a1a2e" stroke-width="1" stroke-dasharray="3 2"/>
+      <line x1="20" y1="22" x2="52" y2="22" stroke="#1a1a2e" stroke-width="1" stroke-dasharray="3 2"/>
+    </svg>
+
+    <h1>Seminario de Negocios Internacionales&nbsp;II</h1>
+    <div class="header-semester">2026-2</div>
+    <p class="header-prof"><strong>Profesor:</strong> <a href="https://www.cisan.unam.mx/juan_carlos_barron.php#gsc.tab=0" target="_blank" rel="noopener">Juan Carlos Barrón Pastor</a></p>
+    <p style="font-size:12px;color:var(--text-muted);margin-top:6px;">6.° semestre · 3 créditos · Modalidad: Seminario (práctico) · Área: Asuntos Globales</p>
+    <p id="today-date" style="font-size:13px;color:var(--accent);margin-top:10px;font-weight:600;"></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- Quick Nav -->
+<nav class="quick-nav" aria-label="Navegación rápida">
+  <a class="qn-btn" href="#info">Información</a>
+  <a class="qn-btn" href="#temario">Temario</a>
+  <a class="qn-btn" href="#calendario">Calendario</a>
+  <a class="qn-btn" href="#lecturas">Lecturas</a>
+  <a class="qn-btn" href="#expositores">Expositores</a>
+  <a class="qn-btn" href="#evaluacion">Evaluación</a>
+  <a class="qn-btn" href="#trabajo-final">Trabajo Final</a>
+  <a class="qn-btn" href="#actividades">Actividades</a>
+  <a class="qn-btn" href="#estrategias">Estrategias</a>
+  <a class="qn-btn" href="#presentaciones">Presentaciones</a>
+  <a class="qn-btn" href="#recursos">Recursos</a>
+</nav>
+
+<div class="controls">
+  <button class="ctrl-btn" onclick="toggleAll(true)">Abrir todo</button>
+  <button class="ctrl-btn" onclick="toggleAll(false)">Cerrar todo</button>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!--  1. INFORMACIÓN DEL CURSO              -->
+<!-- ════════════════════════════════════════ -->
+<details class="section" id="info">
+  <summary>
+    <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+    Información del Curso
+  </summary>
+  <div class="content">
+    <h3>Objetivo General</h3>
+    <p>El alumno fortalecerá sus conocimientos sobre los temas actuales de Negocios Internacionales a través del <strong>diálogo con expertos</strong> para tener un entendimiento sobre las disyuntivas a las que se enfrentan las empresas en la economía global y <strong>asumir una postura crítica</strong> frente a los desafíos del siglo XXI.</p>
+
+    <h3>Objetivos Particulares</h3>
+    <ol>
+      <li><strong>Analizará</strong> la situación actual de la regulación en el ámbito de los negocios internacionales.</li>
+      <li><strong>Indagará</strong> temas actuales de regulación en lecturas técnicas y aplicadas.</li>
+      <li><strong>Elaborará</strong> cuestionamientos a especialistas de diferentes escenarios empresariales y de negocios para sustentar la reflexión sobre la regulación y su incidencia en los Negocios Internacionales.</li>
+      <li><strong>Asumirá</strong> una postura crítica e informada sobre los fenómenos que inciden en el quehacer empresarial integrando aspectos económicos, sociopolíticos, ambientales y éticos.</li>
+    </ol>
+  </div>
+</details>
+
+<!-- ════════════════════════════════════════ -->
+<!--  2. TEMARIO ADAPTADO                   -->
+<!-- ════════════════════════════════════════ -->
+<details class="section" id="temario">
+  <summary>
+    <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8M8 11h6"/></svg>
+    Temario Adaptado
+  </summary>
+  <div class="content">
+    <div class="inner-card" style="margin-bottom:12px;">
+      <h4><span class="tag tag-green">Tema 1</span> Crisis de la globalización liberal y conflictos hacia un nuevo orden</h4>
+      <p style="font-size:14px;color:var(--text-muted);">Del Consenso de Washington a la multipolaridad: las tensiones comerciales, el resurgimiento de soberanías nacionales y los debates sobre desglobalización.</p>
+    </div>
+    <div class="inner-card" style="margin-bottom:12px;">
+      <h4><span class="tag tag-green">Tema 2</span> Regulación gubernamental, gobernanza y nuevo institucionalismo</h4>
+      <p style="font-size:14px;color:var(--text-muted);">Teorías de la regulación, interés público, captura regulatoria, gobernanza multi-actor y cambio institucional.</p>
+    </div>
+    <div class="inner-card" style="margin-bottom:12px;">
+      <h4><span class="tag tag-green">Tema 3</span> Conflictos y pactos geopolíticos entre estados y corporaciones</h4>
+      <p style="font-size:14px;color:var(--text-muted);">Acuerdos comerciales como pactos geopolíticos (T-MEC, RCEP), competencia por recursos, sanciones y el papel de las transnacionales.</p>
+    </div>
+    <div class="inner-card" style="margin-bottom:12px;">
+      <h4><span class="tag tag-green">Tema 4</span> Infocracia, capitalismo digital y de vigilancia</h4>
+      <p style="font-size:14px;color:var(--text-muted);">Capitalismo de vigilancia (Zuboff), plataformas como infraestructura económica, regulación de datos y nuevos totalitarismos.</p>
+    </div>
+    <div class="inner-card">
+      <h4><span class="tag tag-green">Tema 5</span> Retos de la IA para el desarrollo sostenible y la mitigación de desigualdades</h4>
+      <p style="font-size:14px;color:var(--text-muted);">Inteligencia artificial y los ODS, brecha digital, sesgo algorítmico, marcos regulatorios emergentes y desigualdad global.</p>
+    </div>
+  </div>
+</details>
+
+<!-- ════════════════════════════════════════ -->
+<!--  3. CALENDARIO                          -->
+<!-- ════════════════════════════════════════ -->
+<details class="section" id="calendario">
+  <summary>
+    <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    Calendario del Semestre
+  </summary>
+  <div class="content">
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Las sesiones marcadas con borde verde indican la sesión actual o la más próxima. Los bordes rojos señalan fechas de entrega.</p>
+
+    <div class="cal-list" id="calList">
+
+      <div class="cal-item" data-date="2026-02-18">
+        <div class="cal-date">18 Feb<small>Sesión 1</small></div>
+        <div class="cal-body">
+          <h4>Introducción al curso</h4>
+          <p>Presentación del programa, estrategias didácticas y criterios de evaluación.</p>
+          <span class="tag tag-gray">Clase</span>
+        </div>
+      </div>
+
+      <div class="cal-item" data-date="2026-02-25">
+        <div class="cal-date">25 Feb<small>Sesión 2</small></div>
+        <div class="cal-body">
+          <h4>Crisis de la globalización y resurgimiento de las soberanías</h4>
+          <p>Tema 1 — Panorama de la crisis del modelo liberal de globalización.</p>
+          <span class="tag tag-green">Tema 1</span>
+        </div>
+      </div>
+
+      <div class="cal-item" data-date="2026-03-04">
+        <div class="cal-date">4 Mar<small>Sesión 3</small></div>
+        <div class="cal-body">
+          <h4>Lectura 1 — Implicaciones para el debate sobre para qué y cómo regular</h4>
+          <p>Chirico (2014): "Who gets what, when and how: global governance."</p>
+          <span class="tag tag-blue">Lectura</span>
+        </div>
+      </div>
+
+      <div class="cal-item" data-date="2026-03-11">
+        <div class="cal-date">11 Mar<small>Sesión 4</small></div>
+        <div class="cal-body">
+          <h4>Lectura 2 — Dificultades para definir el interés público y negociar intereses de grupo</h4>
+          <p>Eisner et al. (2018): "A primer on regulation." &bull; Se aborda el Tema 2: Regulación gubernamental, gobernanza y nuevo institucionalismo.</p>
+          <span class="tag tag-blue">Lectura</span> <span class="tag tag-green">Tema 2</span>
+        </div>
+      </div>
+
+      <div class="cal-item" data-date="2026-03-18">
+        <div class="cal-date">18 Mar<small>Sesión 5</small></div>
+        <div class="cal-body">
+          <h4>Lectura 3 — Multidimensionalidad, complejidad y retos de la representación</h4>
+          <p>Baldwin et al. (2012): "Explaining regulation." &bull; Se aborda el Tema 3: Conflictos y pactos geopolíticos entre estados y corporaciones.</p>
+          <span class="tag tag-blue">Lectura</span> <span class="tag tag-green">Tema 3</span>
+        </div>
+      </div>
+
+      <div class="cal-item" data-date="2026-03-25">
+        <div class="cal-date">25 Mar<small>Sesión 6</small></div>
+        <div class="cal-body">
+          <h4>Semana Académica — Invitado 1: Dr. Roberto Zepeda</h4>
+          <p><em>"La revisión del T-MEC, lo que está en juego."</em></p>
+          <span class="tag tag-gold">Expositor invitado</span>
+        </div>
+      </div>
+
+      <div class="cal-item" data-date="2026-04-08">
+        <div class="cal-date">8 Abr<small>Sesión 7</small></div>
+        <div class="cal-body">
+          <h4>Invitada 2: Dra. Cynthia Arredondo</h4>
+          <p><em>"Inversión extranjera y sustentabilidad: un análisis sistémico del T-MEC."</em></p>
+          <span class="tag tag-gold">Expositor invitado</span>
+        </div>
+      </div>
+
+      <div class="cal-item" data-date="2026-04-15">
+        <div class="cal-date">15 Abr<small>Sesión 8</small></div>
+        <div class="cal-body">
+          <h4>Invitada 3: Dra. Argelia Muñoz</h4>
+          <p><em>"Regulación de plataformas digitales alternativas en EUA."</em></p>
+          <span class="tag tag-gold">Expositor invitado</span>
+        </div>
+      </div>
+
+      <div class="cal-item" data-date="2026-04-22">
+        <div class="cal-date">22 Abr<small>Sesión 9</small></div>
+        <div class="cal-body">
+          <h4>Lectura 4 — Capitalismo digital y capitalismo de vigilancia</h4>
+          <p>Zuboff (2019): "The Age of Surveillance Capitalism." &bull; Se aborda el Tema 4.</p>
+          <span class="tag tag-blue">Lectura</span> <span class="tag tag-green">Tema 4</span>
+        </div>
+      </div>
+
+      <div class="cal-item" data-date="2026-04-29">
+        <div class="cal-date">29 Abr<small>Sesión 10</small></div>
+        <div class="cal-body">
+          <h4>Nuevos totalitarismos y riesgos para las libertades</h4>
+          <p>Discusión grupal sobre vigilancia estatal, desinformación y control digital.</p>
+          <span class="tag tag-green">Tema 4</span>
+        </div>
+      </div>
+
+      <div class="cal-item" data-date="2026-05-06">
+        <div class="cal-date">6 May<small>Sesión 11</small></div>
+        <div class="cal-body">
+          <h4>Infocracia, capitalismo digital y de vigilancia</h4>
+          <p>Sesión integradora del Tema 4: análisis crítico del poder informacional.</p>
+          <span class="tag tag-green">Tema 4</span>
+        </div>
+      </div>
+
+      <div class="cal-item" data-date="2026-05-13">
+        <div class="cal-date">13 May<small>Sesión 12</small></div>
+        <div class="cal-body">
+          <h4>Los retos de la IA al desarrollo sostenible y la mitigación de desigualdades</h4>
+          <p>Tema 5 — IA, ODS, brecha digital, marcos regulatorios emergentes.</p>
+          <span class="tag tag-green">Tema 5</span>
+        </div>
+      </div>
+
+      <div class="cal-item deadline" data-date="2026-05-20">
+        <div class="cal-date">20 May<small>Sesión 13</small></div>
+        <div class="cal-body">
+          <h4>Entrega de trabajos finales y reportes de actividades académicas</h4>
+          <p><strong>Fecha límite:</strong> subir trabajo final a Moodle. Reportes de actividades a más tardar el 28 de mayo. <strong>No hay prórroga.</strong></p>
+          <span class="tag tag-red">Entrega</span>
+        </div>
+      </div>
+
+      <div class="cal-item" data-date="2026-05-27">
+        <div class="cal-date">27 May<small>Sesión 14</small></div>
+        <div class="cal-body">
+          <h4>Reflexiones finales</h4>
+          <p>Discusión integradora del semestre y cierre temático.</p>
+          <span class="tag tag-gray">Cierre</span>
+        </div>
+      </div>
+
+      <div class="cal-item" data-date="2026-06-03">
+        <div class="cal-date">3 Jun<small>Sesión 15</small></div>
+        <div class="cal-body">
+          <h4>Retroalimentación y entrega de calificaciones</h4>
+          <p>Sesión final del curso.</p>
+          <span class="tag tag-gray">Cierre</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="deadline-banner" style="margin-top:16px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="10"/></svg>
+      Fechas límite: Trabajo final — 20 de mayo · Reporte de actividades — 28 de mayo · No hay prórroga.
+    </div>
+  </div>
+</details>
+
+<!-- ════════════════════════════════════════ -->
+<!--  4. LECTURAS Y BIBLIOGRAFÍA            -->
+<!-- ════════════════════════════════════════ -->
+<details class="section" id="lecturas">
+  <summary>
+    <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    Lecturas y Bibliografía
+  </summary>
+  <div class="content">
+    <h3>Lecturas Obligatorias</h3>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Se subirán a Moodle. Tres de las cuatro están en inglés. Se espera que llegues preparado/a para discutirlas en la sesión indicada.</p>
+
+    <div class="reading-card">
+      <div style="display:flex;align-items:center;margin-bottom:6px;">
+        <span class="reading-num">1</span>
+        <span class="reading-title">Who gets what, when and how: global governance</span>
+      </div>
+      <p class="reading-meta">
+        Chirico, J. (2014). En <em>Globalization, prospects and problems</em>. Sage, pp. 161–185.<br>
+        <span class="tag tag-blue" style="margin-top:6px;">Sesión 3 — 4 de marzo</span> <span class="tag tag-green">Tema 1</span>
+      </p>
+    </div>
+
+    <div class="reading-card">
+      <div style="display:flex;align-items:center;margin-bottom:6px;">
+        <span class="reading-num">2</span>
+        <span class="reading-title">A primer on regulation</span>
+      </div>
+      <p class="reading-meta">
+        Eisner, M. A., Worsham, J., Ringquist, E. J., &amp; Nestor, F. (2018). En <em>Contemporary regulatory policy</em> (3.ª ed.). Lynne Rienner, pp. 1–19.<br>
+        <span class="tag tag-blue" style="margin-top:6px;">Sesión 4 — 11 de marzo</span> <span class="tag tag-green">Tema 2</span>
+      </p>
+    </div>
+
+    <div class="reading-card">
+      <div style="display:flex;align-items:center;margin-bottom:6px;">
+        <span class="reading-num">3</span>
+        <span class="reading-title">Explaining regulation</span>
+      </div>
+      <p class="reading-meta">
+        Baldwin, R., Cave, M., &amp; Lodge, M. (2012). En <em>Understanding regulation: Theory, strategy and practice</em> (2.ª ed.). Oxford University Press, pp. 40–67.<br>
+        <span class="tag tag-blue" style="margin-top:6px;">Sesión 5 — 18 de marzo</span> <span class="tag tag-green">Tema 3</span>
+      </p>
+    </div>
+
+    <div class="reading-card">
+      <div style="display:flex;align-items:center;margin-bottom:6px;">
+        <span class="reading-num">4</span>
+        <span class="reading-title">The Age of Surveillance Capitalism</span>
+      </div>
+      <p class="reading-meta">
+        Zuboff, S. (2019). PublicAffairs.<br>
+        <span class="tag tag-blue" style="margin-top:6px;">Sesión 9 — 22 de abril</span> <span class="tag tag-green">Tema 4</span>
+      </p>
+    </div>
+
+    <h3>Bibliografía Recomendada</h3>
+    <ul>
+      <li><strong>Wallerstein, I.</strong> (1997). La reestructuración capitalista y el sistema-mundo. <a href="https://flacsoandes.edu.ec/sites/default/files/agora/files/1265665449.la_reestructuracion_capitalista_y_el_sistema_0.pdf" target="_blank" rel="noopener">Texto completo ↗</a></li>
+      <li><strong>Daniels, J., Radebaugh, L., &amp; Sullivan, D.</strong> (2018). Influencia del gobierno en el comercio. En <em>Negocios internacionales: Ambientes y operaciones</em> (15.ª ed., pp. 184–204). Pearson.</li>
+      <li><strong>Barrón Pastor, J. C.</strong> (2022). Capitalismo digital e infodemia en América del Norte: Retos para el desarrollo sostenible e informacional de la región. En Ballesteros, C. (Coord.), <em>El gran desconcierto</em>. UNAM-FCPyS. <em>(Marco epistemológico del profesor, no es lectura obligatoria.)</em></li>
+    </ul>
+
+    <h3>Del plan de estudios oficial</h3>
+    <p>Se recomienda revisar particularmente los textos de <strong>Stigler</strong> y <strong>Stiglitz</strong> de la bibliografía del programa oficial:</p>
+    <ul>
+      <li>Stigler, G. J. (1971). The theory of economic regulation. <em>The Bell Journal of Economics and Management Science</em>, <em>2</em>(1), 3–21.</li>
+      <li>Stiglitz, J. E. (2000). <em>La economía del sector público</em> (3.ª ed.). Antoni Bosch.</li>
+      <li>Hill, C. W. L. (2015). <em>Negocios internacionales: Cómo competir en el mercado global</em> (10.ª ed.). McGraw-Hill.</li>
+    </ul>
+  </div>
+</details>
+
+<!-- ════════════════════════════════════════ -->
+<!--  5. EXPOSITORES INVITADOS              -->
+<!-- ════════════════════════════════════════ -->
+<details class="section" id="expositores">
+  <summary>
+    <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    Expositores Invitados
+  </summary>
+  <div class="content">
+    <p>Se invitará a <strong>cinco expertos</strong> a dialogar con el grupo sobre los temas del curso. Tres han sido confirmados; los otros dos se anunciarán durante el semestre.</p>
+
+    <div class="inner-card" style="margin-bottom:14px;background:var(--red-light);border-color:var(--red);">
+      <p style="font-size:14px;"><strong>⚠ Regla importante:</strong> Es indispensable llegar <strong>puntualmente</strong>. Cuando el invitado ya se encuentre presentando, <strong>no se permitirá la entrada</strong> por respeto al expositor. Al término de la ponencia, se debe participar haciendo <strong>preguntas inteligentes e interesantes</strong>. Cada pregunta puede valer hasta <strong>10 puntos</strong>.</p>
+    </div>
+
+    <div class="expert-card">
+      <div class="expert-avatar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div class="expert-info">
+        <h4>Dr. Roberto Zepeda</h4>
+        <p><strong>Tema:</strong> "La revisión del T-MEC, lo que está en juego."<br>
+        <span class="tag tag-gold">25 de marzo — Semana Académica</span></p>
+      </div>
+    </div>
+
+    <div class="expert-card">
+      <div class="expert-avatar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div class="expert-info">
+        <h4>Dra. Cynthia Arredondo</h4>
+        <p><strong>Tema:</strong> "Inversión extranjera y sustentabilidad: un análisis sistémico del T-MEC."<br>
+        <span class="tag tag-gold">8 de abril</span></p>
+      </div>
+    </div>
+
+    <div class="expert-card">
+      <div class="expert-avatar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div class="expert-info">
+        <h4>Dra. Argelia Muñoz</h4>
+        <p><strong>Tema:</strong> "Regulación de plataformas digitales alternativas en EUA."<br>
+        <span class="tag tag-gold">15 de abril</span></p>
+      </div>
+    </div>
+
+    <div class="inner-card" style="background:var(--gold-light);">
+      <p style="font-size:14px;"><strong>Invitados 4 y 5:</strong> Por confirmar. Se anunciarán oportunamente a través de Moodle y el grupo de Facebook.</p>
+    </div>
+
+    <h3 style="margin-top:18px;">Guía para preparar preguntas</h3>
+    <div class="template-box">
+      <h4>¿Cómo formular preguntas inteligentes?</h4>
+      <ol>
+        <li>Revisa de antemano el tema del expositor y su conexión con el temario del curso.</li>
+        <li>Identifica un punto de tensión, una contradicción o un vacío en la literatura.</li>
+        <li>Formula la pregunta en forma específica: evita preguntas genéricas como "¿Qué opina usted de…?"</li>
+        <li>Vincula tu pregunta con las lecturas del curso o con un caso concreto.</li>
+        <li>Sé breve y directo/a. Una buena pregunta no necesita un preámbulo largo.</li>
+      </ol>
+    </div>
+  </div>
+</details>
+
+<!-- ════════════════════════════════════════ -->
+<!--  6. SISTEMA DE EVALUACIÓN              -->
+<!-- ════════════════════════════════════════ -->
+<details class="section" id="evaluacion">
+  <summary>
+    <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+    Sistema de Evaluación
+  </summary>
+  <div class="content">
+    <table class="eval-table">
+      <thead>
+        <tr>
+          <th>Rubro</th>
+          <th>Porcentaje</th>
+          <th>Detalle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Participación en lecturas</strong></td>
+          <td>
+            30%
+            <div class="eval-bar"><div class="eval-bar-fill" style="width:30%;background:var(--blue);"></div></div>
+          </td>
+          <td>El profesor preguntará aleatoriamente a 10 estudiantes sobre la lectura obligatoria. Cada participación vale hasta <strong>10 puntos</strong> según la calidad de la respuesta.</td>
+        </tr>
+        <tr>
+          <td><strong>Participación con expositores</strong></td>
+          <td>
+            30%
+            <div class="eval-bar"><div class="eval-bar-fill" style="width:30%;background:var(--gold);"></div></div>
+          </td>
+          <td>Preguntas inteligentes e interesantes al término de la exposición. Cada pregunta vale hasta <strong>10 puntos</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>Actividades académicas</strong></td>
+          <td>
+            15%
+            <div class="eval-bar"><div class="eval-bar-fill" style="width:15%;background:var(--accent);"></div></div>
+          </td>
+          <td>Asistir a al menos 3 actividades académicas adicionales. Reporte de hasta 3 páginas (1 por actividad). Cada actividad bien reportada vale hasta <strong>5 puntos</strong> (15 en total).</td>
+        </tr>
+        <tr>
+          <td><strong>Trabajo final</strong></td>
+          <td>
+            25%
+            <div class="eval-bar"><div class="eval-bar-fill" style="width:25%;background:var(--red);"></div></div>
+          </td>
+          <td>En equipos de 5-6 personas. Entre 10 y 15 páginas. Se sube a Moodle. Vale <strong>25 puntos</strong>.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:14px;margin-top:12px;text-align:right;"><strong>Total: 100 puntos</strong></p>
+  </div>
+</details>
+
+<!-- ════════════════════════════════════════ -->
+<!--  7. TRABAJO FINAL                       -->
+<!-- ════════════════════════════════════════ -->
+<details class="section" id="trabajo-final">
+  <summary>
+    <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>
+    Trabajo Final — Lineamientos
+  </summary>
+  <div class="content">
+    <div class="deadline-banner" style="margin-bottom:14px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Fecha límite: <strong>20 de mayo de 2026</strong> — subir a Moodle. No hay prórroga.
+    </div>
+
+    <h3>Especificaciones</h3>
+    <ul>
+      <li><strong>Equipos:</strong> de 5 a 6 personas.</li>
+      <li><strong>Extensión:</strong> entre 10 y 15 páginas.</li>
+      <li><strong>Tema:</strong> profundizar sobre un desafío de <strong>regulación o desregulación internacional</strong>.</li>
+      <li><strong>Valor:</strong> 25 puntos.</li>
+      <li><strong>Entrega:</strong> plataforma Moodle, a más tardar el 20 de mayo.</li>
+    </ul>
+
+    <h3>Estructura requerida (5 secciones)</h3>
+    <div class="template-box">
+      <ol>
+        <li><strong>Introducción</strong> — Incluir pregunta de investigación y objetivo del trabajo.</li>
+        <li><strong>Descripción del problema</strong> — Descripción fundamentada del problema y los retos identificados para su regulación.</li>
+        <li><strong>Análisis de impacto</strong> — Análisis informado sobre el impacto del problema en aspectos <strong>económicos, sociopolíticos, ambientales y éticos</strong> específicos.</li>
+        <li><strong>Conclusiones</strong> — Síntesis argumentada con postura propia.</li>
+        <li><strong>Referencias</strong> — Completas, en formato consistente.</li>
+      </ol>
+    </div>
+
+    <h3>Criterios de calidad</h3>
+    <ul>
+      <li>Sin faltas de ortografía.</li>
+      <li>Redacción clara y coherente.</li>
+      <li>Bien fundamentado y referenciado.</li>
+      <li>Análisis que integre múltiples dimensiones (económica, sociopolítica, ambiental, ética).</li>
+    </ul>
+
+    <h3>Ideas de temas sugeridos</h3>
+    <div class="inner-card">
+      <ul style="font-size:14px;">
+        <li>La revisión del T-MEC y el futuro de la integración económica en América del Norte.</li>
+        <li>Regulación de la inteligencia artificial: comparativa UE, EUA y China.</li>
+        <li>Capitalismo de vigilancia y protección de datos personales en América Latina.</li>
+        <li>Paraísos fiscales y la gobernanza tributaria internacional.</li>
+        <li>Plataformas digitales y derechos laborales: el caso de la economía gig.</li>
+        <li>Regulación ambiental y cadenas de suministro globales post-COVID.</li>
+        <li>El papel de organismos multilaterales en la regulación del comercio digital.</li>
+        <li>Soberanía tecnológica: semiconductores, 5G y la guerra comercial EUA-China.</li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+<!-- ════════════════════════════════════════ -->
+<!--  8. REPORTE DE ACTIVIDADES ACADÉMICAS  -->
+<!-- ════════════════════════════════════════ -->
+<details class="section" id="actividades">
+  <summary>
+    <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+    Reporte de Actividades Académicas
+  </summary>
+  <div class="content">
+    <div class="deadline-banner" style="margin-bottom:14px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Fecha límite: <strong>28 de mayo de 2026</strong> — subir a Moodle. No hay prórroga.
+    </div>
+
+    <h3>Requisitos</h3>
+    <ul>
+      <li>Asistir a <strong>al menos 3 actividades académicas adicionales</strong> durante el semestre.</li>
+      <li>Entregar un <strong>reporte de hasta 3 páginas</strong> (aproximadamente 1 página por actividad).</li>
+      <li>Incluir una <strong>reflexión crítica</strong> sobre cada actividad.</li>
+      <li>Conectar las actividades con los <strong>temas del curso</strong>.</li>
+      <li>Cada actividad bien reportada vale hasta <strong>5 puntos</strong> (15 puntos en total).</li>
+    </ul>
+
+    <h3>Plantilla sugerida para cada actividad</h3>
+    <div class="template-box">
+      <h4>Actividad [1, 2 o 3]</h4>
+      <ul>
+        <li><strong>Nombre del evento:</strong> [Título de la conferencia, congreso, seminario, etc.]</li>
+        <li><strong>Fecha y lugar:</strong> [Cuándo y dónde se realizó]</li>
+        <li><strong>Organizador:</strong> [Quién lo organizó]</li>
+        <li><strong>Descripción breve:</strong> [2-3 oraciones sobre el contenido principal]</li>
+        <li><strong>Conexión con el curso:</strong> [¿Cómo se relaciona con los temas del Seminario?]</li>
+        <li><strong>Reflexión crítica:</strong> [Tu análisis personal: ¿qué aprendiste? ¿qué cuestionas? ¿qué implicaciones identificas?]</li>
+      </ul>
+    </div>
+
+    <h3>¿Qué cuenta como actividad académica?</h3>
+    <div class="inner-card">
+      <ul style="font-size:14px;">
+        <li>Conferencias, seminarios, coloquios, mesas redondas organizadas por la UNAM u otras instituciones académicas.</li>
+        <li>Presentaciones de libros relacionadas con negocios internacionales, regulación, globalización, IA o temas afines.</li>
+        <li>Webinars académicos de organismos internacionales (<a href="https://www.wto.org/" target="_blank" rel="noopener">OMC</a>, <a href="https://www.cepal.org/" target="_blank" rel="noopener">CEPAL</a>, <a href="https://www.oecd.org/" target="_blank" rel="noopener">OCDE</a>, <a href="https://www.imf.org/" target="_blank" rel="noopener">FMI</a>, etc.).</li>
+        <li>Eventos de la Semana Académica de la FCA u otras facultades.</li>
+        <li>Actividades del <a href="https://www.cisan.unam.mx/" target="_blank" rel="noopener">CISAN</a>, del <a href="https://www.iiec.unam.mx/" target="_blank" rel="noopener">IIEc</a> o de otras entidades de investigación de la UNAM.</li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+<!-- ════════════════════════════════════════ -->
+<!--  9. ESTRATEGIAS DIDÁCTICAS             -->
+<!-- ════════════════════════════════════════ -->
+<details class="section" id="estrategias">
+  <summary>
+    <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+    Estrategias Didácticas y Recomendaciones
+  </summary>
+  <div class="content">
+    <h3>Dinámica del curso</h3>
+    <ul>
+      <li>El curso es <strong>presencial</strong>.</li>
+      <li>Se utiliza la <strong>página de Moodle</strong> asignada por la FCA para compartir las cinco lecturas (tres en inglés), los reportes y el trabajo final.</li>
+      <li>Se usa un <strong>grupo de Facebook</strong> para compartir archivos de texto, multimedia, vínculos a páginas y videos, así como para mensajes grupales y avisos.</li>
+      <li>Se invitará a <strong>cinco expertos</strong> para dialogar sobre los temas del curso.</li>
+      <li>A lo largo de las sesiones temáticas, el profesor <strong>preguntará aleatoriamente a diez estudiantes</strong> cuestiones relacionadas con la lectura obligatoria asignada al tema.</li>
+    </ul>
+
+    <h3>Recomendaciones del profesor</h3>
+    <div class="inner-card" style="background:var(--accent-light);">
+      <ul style="font-size:14px;">
+        <li>📝 <strong>Toma notas</strong> tanto durante las sesiones como al estudiar los materiales del curso.</li>
+        <li>🌐 <strong>Utiliza didácticamente la red digital</strong> del grupo para compartir contenidos relevantes.</li>
+        <li>📚 Además de las lecturas obligatorias, <strong>revisa la bibliografía del curso</strong> para identificar nociones básicas sobre complejidad.</li>
+        <li>🔍 Conoce las posibles <strong>implicaciones teóricas para la comprensión de la globalización y la geopolítica</strong>.</li>
+        <li>🏛️ Aprovecha las <strong>colecciones bibliotecológicas y hemerográficas</strong> del sistema de bibliotecas de la UNAM.</li>
+      </ul>
+    </div>
+
+    <h3>Guía para preparar las sesiones de lectura</h3>
+    <div class="template-box">
+      <h4>Antes de la sesión:</h4>
+      <ol>
+        <li>Lee completo el texto asignado (no solo hojearlo).</li>
+        <li>Identifica la tesis o argumento central del autor.</li>
+        <li>Anota 3-5 conceptos clave y sus definiciones.</li>
+        <li>Prepara al menos 2 preguntas sobre aspectos que no te quedaron claros.</li>
+        <li>Piensa en cómo se conecta la lectura con el tema correspondiente del curso.</li>
+        <li>Busca un ejemplo actual (noticia, caso) que ilustre lo que plantea el autor.</li>
+      </ol>
+      <h4 style="margin-top:12px;">Durante la sesión:</h4>
+      <ol>
+        <li>Ten tus notas a la mano para responder con fundamento si te preguntan.</li>
+        <li>Participa activamente en la discusión.</li>
+        <li>Toma nota de las aportaciones de tus compañeros y del profesor.</li>
+      </ol>
+    </div>
+  </div>
+</details>
+
+<!-- ════════════════════════════════════════ -->
+<!--  10. PRESENTACIONES                     -->
+<!-- ════════════════════════════════════════ -->
+<details class="section" id="presentaciones">
+  <summary>
+    <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+    Presentaciones de los Temas
+  </summary>
+  <div class="content">
+    <p>Presentaciones de apoyo para cada uno de los cinco temas del curso. Se pueden abrir en el navegador y usar en modo pantalla completa (tecla <strong>F11</strong> o botón).</p>
+
+    <div class="pres-grid">
+      <a class="pres-link" href="presentaciones/tema1.html">
+        <span class="pnum">1</span>
+        Crisis de la globalización liberal
+      </a>
+      <a class="pres-link" href="presentaciones/tema2.html">
+        <span class="pnum">2</span>
+        Regulación gubernamental y gobernanza
+      </a>
+      <a class="pres-link" href="presentaciones/tema3.html">
+        <span class="pnum">3</span>
+        Conflictos y pactos geopolíticos
+      </a>
+      <a class="pres-link" href="presentaciones/tema4.html">
+        <span class="pnum">4</span>
+        Infocracia y capitalismo de vigilancia
+      </a>
+      <a class="pres-link" href="presentaciones/tema5.html">
+        <span class="pnum">5</span>
+        IA, desarrollo sostenible y desigualdades
+      </a>
+    </div>
+  </div>
+</details>
+
+<!-- ════════════════════════════════════════ -->
+<!--  11. RECURSOS Y ENLACES                -->
+<!-- ════════════════════════════════════════ -->
+<details class="section" id="recursos">
+  <summary>
+    <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+    Recursos y Enlaces
+  </summary>
+  <div class="content">
+    <h3>Bibliotecas UNAM</h3>
+    <ul>
+      <li><a href="https://cisan.bibliotecas.unam.mx/" target="_blank" rel="noopener">Biblioteca Rosa Cusminsky — CISAN ↗</a> (particularmente recomendada)</li>
+      <li><a href="http://biblio.contad.unam.mx/" target="_blank" rel="noopener">Biblioteca de la FCA ↗</a></li>
+      <li><a href="https://www.bidi.unam.mx/" target="_blank" rel="noopener">BIDI UNAM — Biblioteca Digital ↗</a></li>
+    </ul>
+
+    <h3>Textos en línea</h3>
+    <ul>
+      <li><a href="https://flacsoandes.edu.ec/sites/default/files/agora/files/1265665449.la_reestructuracion_capitalista_y_el_sistema_0.pdf" target="_blank" rel="noopener">Wallerstein (1997) — "La reestructuración capitalista y el sistema-mundo" ↗</a></li>
+    </ul>
+
+    <h3>Videos recomendados</h3>
+    <button class="video-trigger" onclick="openVideo()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Data Labeling — ARTE TV (YouTube)
+    </button>
+    <p style="font-size:13px;color:var(--text-muted);margin-top:6px;">Documental breve sobre la industria del etiquetado de datos y las condiciones laborales detrás del entrenamiento de modelos de IA. Relevante para los temas 4 y 5.</p>
+
+    <h3>Plataformas del curso</h3>
+    <ul>
+      <li><strong>Moodle FCA:</strong> <a href="https://negociosinternacionales.fca.unam.mx" target="_blank" rel="noopener">Plataforma oficial</a> para entregas y lecturas.</li>
+      <li><strong>Grupo de Facebook:</strong> Canal de comunicación grupal para compartir archivos, multimedia, vínculos, videos y avisos.</li>
+    </ul>
+
+    <h3>Recursos complementarios sugeridos</h3>
+    <div class="inner-card">
+      <ul style="font-size:14px;">
+        <li><strong>OMC — Informes sobre comercio mundial:</strong> <a href="https://www.wto.org/" target="_blank" rel="noopener">Estadísticas y análisis del comercio internacional ↗</a></li>
+        <li><strong>CEPAL — Repositorio digital:</strong> <a href="https://www.cepal.org/" target="_blank" rel="noopener">Estudios sobre regulación y desarrollo en América Latina ↗</a></li>
+        <li><strong>OCDE — Regulatory Policy:</strong> <a href="https://www.oecd.org/" target="_blank" rel="noopener">Documentos sobre mejores prácticas regulatorias ↗</a></li>
+        <li><strong>ONU — Objetivos de Desarrollo Sostenible:</strong> <a href="https://sdgs.un.org/" target="_blank" rel="noopener">Marco de referencia para el Tema 5 ↗</a></li>
+        <li><strong>UNESCO — Recomendación sobre IA:</strong> <a href="https://www.unesco.org/en/artificial-intelligence/recommendation-ethics" target="_blank" rel="noopener">Perspectivas globales sobre ética de IA ↗</a></li>
+        <li><strong>ITU — Measuring Digital Development:</strong> <a href="https://www.itu.int/en/ITU-D/Statistics/Pages/facts/default.aspx" target="_blank" rel="noopener">Datos sobre brecha digital global ↗</a></li>
+        <li><strong>UNCTAD — World Investment Report:</strong> <a href="https://unctad.org/topic/investment/world-investment-report" target="_blank" rel="noopener">Informe anual sobre inversión extranjera directa ↗</a></li>
+        <li><strong>USTR — Informes sobre el T-MEC:</strong> <a href="https://ustr.gov/trade-agreements/free-trade-agreements/united-states-mexico-canada-agreement" target="_blank" rel="noopener">Implementación y cumplimiento del USMCA ↗</a></li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+</main>
+
+<!-- ════════════════════════════════════════ -->
+<!--  FOOTER                                 -->
+<!-- ════════════════════════════════════════ -->
+<footer class="site-footer">
+  <p>
+    <strong>Seminario de Negocios Internacionales II</strong> · Semestre 2026-2<br>
+    Profesor: <a href="https://www.cisan.unam.mx/juan_carlos_barron.php#gsc.tab=0" target="_blank" rel="noopener" style="color:inherit;">Juan Carlos Barrón Pastor</a><br>
+    Facultad de Contaduría y Administración · UNAM
+  </p>
+  <p style="margin-top:8px;font-size:12px;">
+    6.° semestre · 3 créditos · Modalidad: Seminario (práctico) · Sin seriación<br>
+    Página complementaria al curso presencial y a la plataforma Moodle.
+  </p>
+  <p style="margin-top:8px;font-size:12px;">
+    Diseño y desarrollo: Jorge Cardiel · <a href="https://github.com/kyberkritik" target="_blank" rel="noopener">GitHub: kyberkritik</a>
+  </p>
+  <div class="footer-links">
+    <a href="https://cisan.bibliotecas.unam.mx/" target="_blank" rel="noopener">Biblioteca CISAN</a>
+    <a href="http://biblio.contad.unam.mx/" target="_blank" rel="noopener">Biblioteca FCA</a>
+    <a href="https://www.bidi.unam.mx/" target="_blank" rel="noopener">BIDI UNAM</a>
+    <a href="#info">↑ Volver arriba</a>
+  </div>
+</footer>
+
+<script>
+/* ── Expand/Collapse All ── */
+function toggleAll(open){
+  document.querySelectorAll('details.section').forEach(d=>d.open=open);
+}
+
+/* ── Date display ── */
+(function(){
+  const hoy=new Date();
+  const opts={weekday:'long',year:'numeric',month:'long',day:'numeric'};
+  const str=hoy.toLocaleDateString('es-MX',opts);
+  const el=document.getElementById('today-date');
+  if(el) el.textContent=str.charAt(0).toUpperCase()+str.slice(1);
+})();
+
+/* ── Auto-highlight current/next session in calendar ── */
+(function(){
+  const today=new Date();
+  today.setHours(0,0,0,0);
+  const items=document.querySelectorAll('.cal-item[data-date]');
+  let foundCurrent=false;
+  items.forEach(item=>{
+    const d=new Date(item.dataset.date+'T00:00:00');
+    if(d<today){
+      item.classList.add('past');
+    }else if(!foundCurrent){
+      item.classList.add('current');
+      foundCurrent=true;
+    }
+  });
+})();
+</script>
+
+<!-- ── YouTube Video Modal ── -->
+<style>
+.video-modal-overlay{
+  display:none;position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.75);align-items:center;justify-content:center;
+}
+.video-modal-overlay.active{display:flex;}
+.video-modal{
+  background:var(--card);border:3px solid var(--border);border-radius:var(--radius);
+  box-shadow:8px 8px 0 var(--shadow);padding:16px;max-width:640px;width:92%;
+  position:relative;
+}
+.video-modal .close-btn{
+  position:absolute;top:-12px;right:-12px;width:32px;height:32px;
+  background:var(--red);color:#fff;border:2px solid var(--border);border-radius:50%;
+  font-weight:700;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:2px 2px 0 var(--border);
+}
+.video-modal .close-btn:hover{background:#d32f2f;}
+.video-modal iframe{width:100%;aspect-ratio:16/9;border:2px solid var(--border);border-radius:6px;}
+.video-modal .meta{font-size:13px;color:var(--text-muted);margin-top:10px;line-height:1.5;}
+.video-modal .meta strong{color:var(--text);}
+.video-trigger{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--card);border:2px solid var(--border);border-radius:var(--radius);
+  padding:10px 16px;font-size:14px;font-weight:700;color:var(--text);
+  text-decoration:none;cursor:pointer;box-shadow:3px 3px 0 var(--shadow);
+  transition:transform .1s,box-shadow .1s;margin-top:12px;
+}
+.video-trigger:hover{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--shadow);color:var(--accent);}
+.video-trigger svg{flex-shrink:0;}
+</style>
+
+<div class="video-modal-overlay" id="videoModal">
+  <div class="video-modal">
+    <button class="close-btn" onclick="closeVideo()" aria-label="Cerrar">&times;</button>
+    <iframe id="videoFrame" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="meta">
+      <strong>Data Labeling</strong><br>
+      Canal: <em>ARTE TV</em> · Publicado: 2024<br>
+      Tema: La industria del etiquetado de datos — cómo se construyen los modelos de IA a costa de trabajadores en condiciones precarias en el Sur Global. Relevante para los temas 4 y 5 del curso (capitalismo de vigilancia, brecha digital y desigualdades).
+    </div>
+  </div>
+</div>
+
+<script>
+function openVideo(){
+  document.getElementById('videoFrame').src='https://www.youtube-nocookie.com/embed/Q7NZK6h9Tvo?si=PDtKalm_b8fysyVE';
+  document.getElementById('videoModal').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closeVideo(){
+  document.getElementById('videoFrame').src='';
+  document.getElementById('videoModal').classList.remove('active');
+  document.body.style.overflow='';
+}
+document.getElementById('videoModal').addEventListener('click',function(e){
+  if(e.target===this) closeVideo();
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closeVideo();
+});
+</script>
+
+</body>
+</html>
